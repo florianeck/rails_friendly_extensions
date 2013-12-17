@@ -6,7 +6,7 @@ String.class_eval do
 
   CHARS_TO_REMOVE = Chars2Remove::CHARS
   
-  RANDOM_CHARS = {:upcase => "ABCDEFGHIJKLMNOPQRSTUVWXYZ", :downcase => "abcdefghijklmnopqrstuvwxyz", :numbers => "1234567890"}
+  String::RANDOM_CHARS = {:upcase => "ABCDEFGHIJKLMNOPQRSTUVWXYZ", :downcase => "abcdefghijklmnopqrstuvwxyz", :numbers => "1234567890"}
   
   STRING_CHARSETS = {
     "a" => "abcdefghijklmnopqrstuvwxyz",
@@ -24,9 +24,9 @@ String.class_eval do
   def self.random_string(l=12, mode = :all)
     case mode
     when :all
-      base = RANDOM_CHARS.values.join("").split("")
+      base = String::RANDOM_CHARS.values.join("").split("")
     else
-      base = RANDOM_CHARS[mode].split("")
+      base = String::RANDOM_CHARS[mode].split("")
     end
     
     str = ""
@@ -36,6 +36,24 @@ String.class_eval do
     end    
     return str
   end
+  
+  
+  # Extract boolean status from string
+  # => tested
+  def to_boolean
+    if ['true', 'True', 'TRUE', '1'].include?(self)
+      return true
+    else
+      return false
+    end
+  end
+  
+  # Create string with german date format to Date
+  # => tested
+	def to_date
+    raise ArgumentError if self.match(/((0|1|2|3)[0-9]{1})\.(0[0-9]{1}|11|12)\.[0-9]{4}/).nil?
+	  Date.new(self.split(".")[2].to_i, self.split(".")[1].to_i, self.split(".")[0].to_i)
+	end
   
   
   def to_label(options = {:show_tooltip => false})
@@ -53,13 +71,7 @@ String.class_eval do
     end  
   end
   
-  def to_boolean
-    if ['true', 'True', 'TRUE', '1'].include?(self)
-      return true
-    else
-      return false
-    end
-  end
+  
   
   def to_glossar(with = "", options = {:show_tooltip => false})
     with ||= ""
@@ -115,9 +127,7 @@ String.class_eval do
 	end  
 	
 	
-	def to_date
-	  Date.new(self.split(".")[2].to_i, self.split(".")[1].to_i, self.split(".")[0].to_i)
-	end
+	
 	
 	def to_datetime
 	  date  = self.split(" ").first
@@ -125,9 +135,6 @@ String.class_eval do
 	  DateTime.new(date.split(".")[2].to_i, date.split(".")[1].to_i, date.split(".")[0].to_i, time.first.to_i, time.last.to_i)
 	end  
 	
-	def to_db_date
-    self.to_s.split(".").reverse.join("-")
-	end  
 	
 	def clear_html(options = {})
 	  ActionView::Base.full_sanitizer.sanitize(self, :tags => options[:tags] )
