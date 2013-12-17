@@ -1,6 +1,8 @@
 # -*- encoding : utf-8 -*-
 module Alphanumeric
-
+  
+  # Give every year a letter
+  # TODO: should be automatically computed
   YEAR_LETTERS = {
     2009 => "A",
     2010 => "B",

@@ -1,5 +1,8 @@
 # -*- encoding : utf-8 -*-
+# Lists of character replacements like ASCII and HTML entities
 module Chars2Remove
+  
+  # List with internation chars and their ASCII replacement 
   CHARS = {
   "¡" => "",
   "&" => "",
@@ -102,7 +105,7 @@ module Chars2Remove
 
    
    # These charaters mustn't be removed in HTML mode!
-   
+   # All HTML Entities
    ENTITIES = {
      'Â' => {:html => '&Acirc;'     , :dec => '&#194;'  , :hex => '&#x00C2;' },
      'â' => {:html => '&acirc;'     , :dec => '&#226;'  , :hex => '&#x00E2;' },

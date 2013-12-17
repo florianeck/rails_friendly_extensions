@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>README - Bla</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body class="file">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./README_rdoc.html">README</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./SmartCurrency.html">SmartCurrency</a>
+  
+    <li><a href="./SmartCurrency/ClassMethods.html">SmartCurrency::ClassMethods</a>
+  
+    <li><a href="./SmartCurrency/InstanceMethods.html">SmartCurrency::InstanceMethods</a>
+  
+    <li><a href="./Alphanumeric.html">Alphanumeric</a>
+  
+    <li><a href="./ArrayExt.html">ArrayExt</a>
+  
+    <li><a href="./Boolean.html">Boolean</a>
+  
+    <li><a href="./Chars2Remove.html">Chars2Remove</a>
+  
+    <li><a href="./DateNTime.html">DateNTime</a>
+  
+    <li><a href="./HashExt.html">HashExt</a>
+  
+    <li><a href="./Numbers.html">Numbers</a>
+  
+    <li><a href="./Object.html">Object</a>
+  
+    <li><a href="./StringAndMore.html">StringAndMore</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation" class="description">
+  
+<p># rails_friendly_extensions</p>
+
+<p>[![Build Status](<a
+href="https://travis-ci.org/florianeck/rails_friendly_extensions.png?branch=master)](https://travis-ci.org/florianeck/rails_friendly_extensions">travis-ci.org/florianeck/rails_friendly_extensions.png?branch=master)](https://travis-ci.org/florianeck/rails_friendly_extensions</a>)</p>
+
+<p>This is my personal, useful lib to extend Rails basic methods for String,
+Date, Number, Hash and serveral other classes just for easy use…</p>
+
+<p>All in all, my first github project, trying to make some moves on new
+grounds or so… Just did it because i need this stuff, and some other  code
+i wrote in the last three years, for serveral projects, so its just
+comfortable for for me to use it as a ‘shared component’</p>
+
+<p>What ever, maybe it will be useful to someone,  neither its test-covered
+nor checked any other way. so use it at ur own risk.</p>
+
+<p>Up in here we have following tools: (just some examples for the best
+features, try the rest on ur own, it’s all experimential, but’s  yet kinda
+useful to me, so feel free to check out;-):</p>
+
+<p>Following Methods will be available for the Classes as listed below:</p>
+
+<p>## Class: Array ### .avg(attr) returns an average value of the attribute
+passed. E.g.: U have an Array of ‘Orders’ which all have a ‘price’
+@orders.avg(:price) returns an average of all orders price</p>
+
+<p>### .sum_with_attribute(attr) returns the sum values of all items of the
+array. E.g.: U have an Array of ‘Orders’ which all have a ‘price’
+@orders.sum_with_attribute(:price) returns a sum of all orders price.
+Special Feature: @orders.sum_with_attribute(“user.user_order_counts”)
+returns a sum of all orders made by the users who made the selected orders.
+That means, u can sum values retrievied from every kind of data selection
+based upon ur current array of data. (!) Marked as very cool feature!</p>
+
+<p>### .count_for(data) Easy function to find out how many items of the same
+type/data are included in an Array. E.g.:
+[1,2,4,5,1,5,6,1,2,3].count_for(1) returns 3 Works with Strings, <a
+href="Numbers.html">Numbers</a> and almost any other <a
+href="Object.html">Object</a></p>
+
+<p>### .seperate(count = 2) Seperates an array into ‘count’ Arrays, each of
+them the same size. If Array.size is not %‘count’, the last Array will take
+up the last items. E.g:</p>
+<ul><li><dl class="rdoc-list label-list"><dt>1,2,3,4].seperate(2) returns [[<a href="http://3,4">1,2],</a>
+<dd></dd></dl>
+</li><li><dl class="rdoc-list label-list"><dt>1,2,3,4,5,6,7].seperate(3) returns [[1, 2], [3, 4], [5, 6, 7]
+<dd></dd></dl>
+</li></ul>
+
+<p>### .stack(count = 2) Kinda similiar to ‘.seperate’ buts works like that:</p>
+<ul><li><dl class="rdoc-list label-list"><dt>1,2,3,4,5,6,7].stack(2) = [[1, 2], [3, 4], [5, 6], [7]
+<dd></dd></dl>
+</li><li><dl class="rdoc-list label-list"><dt>1,2,3,4,5,6,7].stack(3) = [[1, 2, 3], [4, 5, 6], [7]
+<dd></dd></dl>
+</li></ul>
+
+<p>Divides all items of an Array into sets of ‘count’, starting from first
+item, so last set could maybe be smaller than ‘count’</p>
+
+</div>
+
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.2.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

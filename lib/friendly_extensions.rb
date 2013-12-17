@@ -2,15 +2,12 @@
 # All dit janze zeug laden
 
 require "array"
-require "active_record_array"
 
 require "date_n_time"
 require "numbers"
 require "hash"
 require "string_and_more"
 require "boolean"
-
-require "object"
 
 require "nil_class"
 
