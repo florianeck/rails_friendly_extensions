@@ -1,4 +1,4 @@
-SmartCoreExt
+rails_friendly_extensions
 ============
 
 This is my personal, useful lib to extend Rails basic methods for String, Date, Number, Hash and serveral other classes just for easy use... 
@@ -43,6 +43,3 @@ Kinda similiar to '.seperate' buts works like that:
 - [1,2,3,4,5,6,7].stack(2) = [[1, 2], [3, 4], [5, 6], [7]]
 - [1,2,3,4,5,6,7].stack(3) = [[1, 2, 3], [4, 5, 6], [7]]
 Divides all items of an Array into sets of 'count', starting from first item, so last set could maybe be smaller than 'count'
-
-#== .parse_active_record_array
-See 'ActiveRecordArray' for details
