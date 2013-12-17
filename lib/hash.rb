@@ -1,13 +1,11 @@
 # -*- encoding : utf-8 -*-
 Hash.class_eval do
   
-  def to_s
-    str = ""
-    self.each do |key, value|
-      str << "#{key} => #{value}, "
-    end  
-  end
   
+  # returns an array containing the hash values
+  # ordered either by hash key or hash value
+  # userful for building select_tag data from hash
+  # => tested
   def ordered(by = 1)
     if by == :key
       by = 0
@@ -17,9 +15,15 @@ Hash.class_eval do
     self.to_a.sort_by {|x| x[by].inspect}
   end
   
+  
+  # useful function for extracting form data from serveral checkboxes which will return a hash like:
+  # {:chk_1, => 0, :chk_2, => 1, :chk_3, => 1, ...}
+  # .extract_data would return [:chk_2, :chk_3]
+  # using slice = "chk_" would return [2,3]
   def extract_data(slice = nil, trigger = "1")
     data = []
     self.each do |value, status|
+      value = value.to_s
       if slice.nil?
         data << value if status == trigger
       else  
@@ -28,38 +32,5 @@ Hash.class_eval do
     end
     return data
   end  
-  
-  def to_url(options = {})
-    # alles auf symbol mappen!
-    mapped_hash = {}
-    self.each {|k,v| mapped_hash.merge!(k.to_sym => v)}
-    
-    
-    # controller und action  und ID filtern
-    url = ""
-    if mapped_hash[:controller] || options[:controller]
-      url << "/#{(self[:controller] || options[:controller])}"
-    end
-    
-    if mapped_hash[:action] || options[:action]
-      url << "/#{(self[:action] || options[:action])}"
-    end
-    
-    if mapped_hash[:id] || options[:id]
-      url << "/#{(self[:id] || options[:id])}"
-    end    
-      
-      elements = []
-      mapped_hash.except(:controller, :action, :id).each do |k,v|
-        elements << "#{k.to_s}=#{v}"
-      end
-    
-    unless elements.empty?
-      url << "?#{elements.join('&')}"
-    end  
-    
-    return url
-  end  
-         
   
 end

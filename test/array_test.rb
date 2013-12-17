@@ -1,5 +1,5 @@
 require "test/unit"
-require "friendly_extensions"
+require "array"
 require "dummy_class"
 
 class ArrayTest < Test::Unit::TestCase
