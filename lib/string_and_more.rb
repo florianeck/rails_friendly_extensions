@@ -18,6 +18,26 @@ String.class_eval do
   
   STRING_BASE = STRING_CHARSETS.values.join("")
   
+  # Returns random String, for Passwords, Captachs etc..
+  # could create :upcase, :downcase, :numbers or :all
+  # => tested
+  def self.random_string(l=12, mode = :all)
+    case mode
+    when :all
+      base = RANDOM_CHARS.values.join("").split("")
+    else
+      base = RANDOM_CHARS[mode].split("")
+    end
+    
+    str = ""
+    
+    l.times do 
+      str <<  base.shuffle[rand(base.size-1)]
+    end    
+    return str
+  end
+  
+  
   def to_label(options = {:show_tooltip => false})
     attribute = self
     l = ConceptLabel::LABELS[attribute]
@@ -40,22 +60,6 @@ String.class_eval do
       return false
     end
   end
-  
-  def self.random_string(l=12, mode = :all)
-    case mode
-    when :all
-      base = RANDOM_CHARS.values.join("").split("")
-    else
-      base = RANDOM_CHARS[mode].split("")
-    end
-    
-    str = ""
-    
-    l.times do 
-      str <<  base.shuffle[rand(base.size-1)]
-    end    
-    return str
-  end  
   
   def to_glossar(with = "", options = {:show_tooltip => false})
     with ||= ""
@@ -84,16 +88,6 @@ String.class_eval do
     return parameterized_string
   end
   
-  def crush
-    str = self.split("")
-    str.sort {rand}
-    str = Digest::SHA1.hexdigest(str.to_s)
-    str[0..7]
-  end
-  
-  def shuffle
-    self.split("").sort_by {rand}.join("").humanize
-  end  
   
   
   def de_2_int
