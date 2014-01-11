@@ -65,6 +65,16 @@ class NumericTest < Test::Unit::TestCase
   
   def test_to_q_faktor
     assert_equal 2.to_q, 1.02
-  end     
+  end 
+  
+  def test_time_should_be_calc_correct
+    assert_equal 23.to_time,    "00:00:23"
+    assert_equal 64.to_time,    "00:01:04"
+    
+    assert_equal 17.to_time(:discard_hour => true),    "00:17"
+    assert_equal 73.to_time(:discard_hour => true),    "01:13"
+    
+    assert_equal 3672.to_time,  "01:01:12"
+  end      
 
 end  

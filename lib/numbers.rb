@@ -1,6 +1,33 @@
 # -*- encoding : utf-8 -*-
 # Numeric Extensions
 module Numbers
+  
+  # returns an array with all prime numbers up to limit
+  def self.prime_numbers(limit = 1_000_000, options = {:verbose => false})
+    i = 1; divisors = [2]; primzahlen = []
+    t = Time.now
+    while i <= limit do
+      p = true
+      divisors.each do |d|
+        if i%d == 0 && d != i
+          p = false
+          break
+        end  
+      end
+      
+      if p == true
+        puts i if options[:verbose] == true
+        primzahlen << i
+      end    
+      
+      i += 1
+      divisors << divisors.last+1
+    end  
+    
+    puts "Took #{(t-Time.now).abs.round(2)} sec." if options[:verbose] == true
+    return primzahlen
+  end  
+  
   Numeric.class_eval do
   
     # Convert Number to numeric german style with precision
@@ -99,10 +126,12 @@ module Numbers
   
   
     def to_time(options = {})
-      values = [ self/3600, self / 60 % 60, self%60 ].map{ |t| t.to_s.rjust(2, '0') }
+      values = [ self.to_i/3600, self.to_i / 60 % 60, self.to_i%60 ].map{ |t| t.to_s.rjust(2, '0') }
       if options[:split] == true
-        return {:h => values[0], :m => values[1], :s => values[2]}
-      else
+        return {:h => values[0].round, :m => values[1].round, :s => values[2].round}
+      elsif options[:discard_hour] == true && values[0] == "00"
+        return values[1,2].join(':')
+      else  
         return values.join(':')
       end  
     end 

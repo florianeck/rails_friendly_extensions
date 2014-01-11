@@ -133,19 +133,16 @@ module ArrayExt
     # break array into n arrays
     def seperate(n = 8)
       @f = n
-
-      aks = self
-
-      aks_size  = aks.size
+      aks_size  = self.size
       rest      = aks_size % @f
 
-      @stack = ((aks.size - rest) / @f)
+      @stack = ((aks_size - rest) / @f)
 
       arrays = (1..@f).to_a
 
-      arrays.map! {|i| aks.first(@stack*i).last(@stack) }
-      arrays.last << aks.last(rest)
-      arrays.last.flatten!
+      arrays.map! {|i| self.first(@stack*i).last(@stack) }
+      arrays[-1] += self.last(rest) if rest != 0
+      #arrays.last.pop if (arrays.last.last.empty? || arrays.last.last.blank?)
       return arrays
     end
   

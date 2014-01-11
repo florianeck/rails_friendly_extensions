@@ -255,6 +255,10 @@ module StringAndMore
 
     def to_label(options = {})
       self.to_s.to_label(options)
+    end
+    
+    def gsub(old, repl)  
+      self.to_s.gsub(old, repl)
     end  
   end  
 end

@@ -149,6 +149,16 @@ class ArrayTest < Test::Unit::TestCase
     end  
   end
   
+  def test_array_should_seperate__arrays_correctly
+    # Fix for:
+    # [[1, "a"], [2, "b"], [3, "c"]].seperate(2).last
+    # => [[2, "b"], [[3, "c"]]] - Last Array is in an other array
+    
+    assert_equal [[1, "a"], [2, "b"], [3, "c"]].seperate(2).last.last, [3,"c"]
+    assert_equal [[1, "a"], [2, "b"], [3, "c"], [4, "d"]].seperate(2).last.last, [4,"d"]
+    
+  end  
+  
   #== Tests for .stack
   def test_array_stack
     {4 => (1..10).to_a, 25 => (1..100).to_a}.each do |n, array|
