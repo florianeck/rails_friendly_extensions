@@ -39,5 +39,13 @@ class StringTest < Test::Unit::TestCase
       
   end  
   
+  def test_string_should_get_numbers
+    assert_equal "Here is 5.000".to_number, 5000.0
+    assert_equal "Here is another 5000 nummber".to_number, 5000.0
+    
+    assert_equal "Here is another 5.000,23 with cents".to_number, 5000.23
+    assert_equal "Here is a bigs 5.000.000,23 with cents".to_number, 5000000.23
+  end  
+  
   
 end  

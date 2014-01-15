@@ -56,7 +56,12 @@ module StringAndMore
       raise ArgumentError if self.match(/((0|1|2|3)[0-9]{1})\.(0[0-9]{1}|11|12)\.[0-9]{4}/).nil?
   	  Date.new(self.split(".")[2].to_i, self.split(".")[1].to_i, self.split(".")[0].to_i)
   	end
-  
+    
+    
+    def to_number
+      extract = self.match(/[0-9\.,]{1,}/).to_s
+      return extract.gsub(".", "").gsub(",", ".").to_f
+    end  
   
     def to_label(options = {:show_tooltip => false})
       attribute = self

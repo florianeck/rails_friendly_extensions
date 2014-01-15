@@ -344,4 +344,6 @@ module Chars2Remove
      'Ζ' => {:html => '&Zeta;'      , :dec => '&#918;'  , :hex => '&#x0396;' },
      'ζ' => {:html => '&zeta;'      , :dec => '&#950;'  , :hex => '&#x03B6;' }
    }
+   
+   
 end

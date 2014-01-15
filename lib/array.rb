@@ -42,12 +42,14 @@ module ArrayExt
     end
   
   
-    def to_structured_hash(attribute)
+    def to_structured_hash(attribute, options = {})
       data = {}
 
       self.each do |item|
-        if attribute.is_a?(Symbol)
+        if attribute.is_a?(Symbol) && options[:load_from_hash] != true
           key = item.send(attribute) rescue ""
+        elsif attribute.is_a?(Symbol) && options[:load_from_hash] == true  
+          key = item[attribute] rescue ""
         elsif attribute.is_a?(String)
           attribute_methods = attribute.split(".")  
           key = item.send(attribute_methods[0])
