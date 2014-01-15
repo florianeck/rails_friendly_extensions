@@ -45,6 +45,10 @@ class StringTest < Test::Unit::TestCase
     
     assert_equal "Here is another 5.000,23 with cents".to_number, 5000.23
     assert_equal "Here is a bigs 5.000.000,23 with cents".to_number, 5000000.23
+    
+    # Should do Integers to
+    assert_equal "Here is another 17,43 with cents".to_number(:integer), 17
+    assert_equal "Here is a bigs 5.000.002,23 with cents".to_number(:integer), 5000002
   end  
   
   

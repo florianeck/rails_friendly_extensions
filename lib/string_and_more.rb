@@ -58,9 +58,15 @@ module StringAndMore
   	end
     
     
-    def to_number
+    def to_number(type = :float)
       extract = self.match(/[0-9\.,]{1,}/).to_s
-      return extract.gsub(".", "").gsub(",", ".").to_f
+      final = extract.gsub(".", "").gsub(",", ".")
+      case type 
+      when :float
+        return final.to_f
+      else
+        return final.to_i
+      end    
     end  
   
     def to_label(options = {:show_tooltip => false})
