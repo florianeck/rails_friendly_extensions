@@ -36,6 +36,7 @@ class StringTest < Test::Unit::TestCase
     
     assert_equal Date.new(2012,1,1), "01.01.2012".to_date    
     assert_equal Date.new(2012,12,27), "27.12.2012".to_date    
+    assert_equal Date.new(2012,12,24), "Christmas is on 24.12.2012 in year 2012".to_date 
       
   end  
   

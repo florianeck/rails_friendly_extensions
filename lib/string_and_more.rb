@@ -53,8 +53,10 @@ module StringAndMore
   
     # Create string with german date format to Date
   	def to_date
-      raise ArgumentError if self.match(/((0|1|2|3)[0-9]{1})\.(0[0-9]{1}|11|12)\.[0-9]{4}/).nil?
-  	  Date.new(self.split(".")[2].to_i, self.split(".")[1].to_i, self.split(".")[0].to_i)
+      matched_date = self.match(/((0|1|2|3)[0-9]{1})\.(0[0-9]{1}|11|12)\.[0-9]{4}/)
+      raise ArgumentError, "String has no date like DD.MM.YYYY" if matched_date.nil?
+      
+  	  Date.new(matched_date.to_s.split(".")[2].to_i, matched_date.to_s.split(".")[1].to_i, matched_date.to_s.split(".")[0].to_i)
   	end
     
     
