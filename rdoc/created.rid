@@ -1,13 +1,13 @@
-Wed, 18 Dec 2013 00:42:48 +0100
+Tue, 21 Jan 2014 17:47:35 +0100
 README.rdoc	Tue, 17 Dec 2013 17:13:03 +0100
 lib/alphanumeric.rb	Wed, 18 Dec 2013 00:32:24 +0100
-lib/array.rb	Wed, 18 Dec 2013 00:38:03 +0100
+lib/array.rb	Tue, 21 Jan 2014 00:01:29 +0100
 lib/boolean.rb	Wed, 18 Dec 2013 00:36:03 +0100
-lib/chars_2_remove.rb	Wed, 18 Dec 2013 00:36:59 +0100
+lib/chars_2_remove.rb	Wed, 15 Jan 2014 16:13:32 +0100
 lib/date_n_time.rb	Wed, 18 Dec 2013 00:41:48 +0100
 lib/friendly_extensions.rb	Wed, 18 Dec 2013 00:31:42 +0100
 lib/hash.rb	Wed, 18 Dec 2013 00:37:57 +0100
-lib/nil_class.rb	Fri, 13 Dec 2013 16:07:04 +0100
-lib/numbers.rb	Wed, 18 Dec 2013 00:42:26 +0100
+lib/nil_class.rb	Mon, 20 Jan 2014 01:15:35 +0100
+lib/numbers.rb	Sat, 11 Jan 2014 01:16:01 +0100
 lib/smart_currency.rb	Fri, 13 Dec 2013 16:07:04 +0100
-lib/string_and_more.rb	Wed, 18 Dec 2013 00:31:16 +0100
+lib/string_and_more.rb	Sun, 19 Jan 2014 22:57:03 +0100

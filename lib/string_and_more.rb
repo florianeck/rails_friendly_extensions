@@ -72,11 +72,10 @@ module StringAndMore
     end  
   
     def to_label(options = {:show_tooltip => false})
-      attribute = self
-      l = ConceptLabel::LABELS[attribute]
+      l = ConceptLabel::LABELS[self]
       if l.nil? 
-        ConceptLabel.create(:label => attribute, :attribute_name => attribute)# rescue nil
-        return attribute
+        ConceptLabel.create(:label => self, :attribute_name => self)
+        return self
       else  
         unless options[:show_tooltip] == true
           return l[:label]

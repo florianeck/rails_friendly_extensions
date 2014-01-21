@@ -27,7 +27,7 @@ module ArrayExt
         # Leere Werte löschen
         @value.delete(nil)
       end
-      # Divide by zero ausschliessen
+      # Divide by zero ausschließen
       @value.size == 0 ? size = 1 : size = @value.size
       @value.sum / size
     end

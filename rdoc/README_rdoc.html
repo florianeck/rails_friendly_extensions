@@ -102,28 +102,29 @@ Date, Number, Hash and serveral other classes just for easy use…</p>
 <p>All in all, my first github project, trying to make some moves on new
 grounds or so… Just did it because i need this stuff, and some other  code
 i wrote in the last three years, for serveral projects, so its just
-comfortable for for me to use it as a ‘shared component’</p>
+comfortable for for me to use it as a &#39;shared component&#39;</p>
 
 <p>What ever, maybe it will be useful to someone,  neither its test-covered
 nor checked any other way. so use it at ur own risk.</p>
 
 <p>Up in here we have following tools: (just some examples for the best
-features, try the rest on ur own, it’s all experimential, but’s  yet kinda
-useful to me, so feel free to check out;-):</p>
+features, try the rest on ur own, it&#39;s all experimential, but&#39;s 
+yet kinda useful to me, so feel free to check out;-):</p>
 
 <p>Following Methods will be available for the Classes as listed below:</p>
 
 <p>## Class: Array ### .avg(attr) returns an average value of the attribute
-passed. E.g.: U have an Array of ‘Orders’ which all have a ‘price’
-@orders.avg(:price) returns an average of all orders price</p>
+passed. E.g.: U have an Array of &#39;Orders&#39; which all have a
+&#39;price&#39; @orders.avg(:price) returns an average of all orders price</p>
 
 <p>### .sum_with_attribute(attr) returns the sum values of all items of the
-array. E.g.: U have an Array of ‘Orders’ which all have a ‘price’
-@orders.sum_with_attribute(:price) returns a sum of all orders price.
-Special Feature: @orders.sum_with_attribute(“user.user_order_counts”)
-returns a sum of all orders made by the users who made the selected orders.
-That means, u can sum values retrievied from every kind of data selection
-based upon ur current array of data. (!) Marked as very cool feature!</p>
+array. E.g.: U have an Array of &#39;Orders&#39; which all have a
+&#39;price&#39; @orders.sum_with_attribute(:price) returns a sum of all
+orders price. Special Feature:
+@orders.sum_with_attribute(“user.user_order_counts”) returns a sum of all
+orders made by the users who made the selected orders. That means, u can
+sum values retrievied from every kind of data selection based upon ur
+current array of data. (!) Marked as very cool feature!</p>
 
 <p>### .count_for(data) Easy function to find out how many items of the same
 type/data are included in an Array. E.g.:
@@ -131,24 +132,25 @@ type/data are included in an Array. E.g.:
 href="Numbers.html">Numbers</a> and almost any other <a
 href="Object.html">Object</a></p>
 
-<p>### .seperate(count = 2) Seperates an array into ‘count’ Arrays, each of
-them the same size. If Array.size is not %‘count’, the last Array will take
-up the last items. E.g:</p>
+<p>### .seperate(count = 2) Seperates an array into &#39;count&#39; Arrays,
+each of them the same size. If Array.size is not %&#39;count&#39;, the last
+Array will take up the last items. E.g:</p>
 <ul><li><dl class="rdoc-list label-list"><dt>1,2,3,4].seperate(2) returns [[<a href="http://3,4">1,2],</a>
 <dd></dd></dl>
 </li><li><dl class="rdoc-list label-list"><dt>1,2,3,4,5,6,7].seperate(3) returns [[1, 2], [3, 4], [5, 6, 7]
 <dd></dd></dl>
 </li></ul>
 
-<p>### .stack(count = 2) Kinda similiar to ‘.seperate’ buts works like that:</p>
+<p>### .stack(count = 2) Kinda similiar to &#39;.seperate&#39; buts works like
+that:</p>
 <ul><li><dl class="rdoc-list label-list"><dt>1,2,3,4,5,6,7].stack(2) = [[1, 2], [3, 4], [5, 6], [7]
 <dd></dd></dl>
 </li><li><dl class="rdoc-list label-list"><dt>1,2,3,4,5,6,7].stack(3) = [[1, 2, 3], [4, 5, 6], [7]
 <dd></dd></dl>
 </li></ul>
 
-<p>Divides all items of an Array into sets of ‘count’, starting from first
-item, so last set could maybe be smaller than ‘count’</p>
+<p>Divides all items of an Array into sets of &#39;count&#39;, starting from
+first item, so last set could maybe be smaller than &#39;count&#39;</p>
 
 </div>
 

@@ -5,5 +5,8 @@ NilClass.class_eval do
     return "?"
   end
   
+  def to_de
+    "unbekannt"
+  end  
 
 end  

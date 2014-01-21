@@ -80,6 +80,8 @@
     
     <li><a href="#method-i-green">#green</a>
     
+    <li><a href="#method-i-gsub">#gsub</a>
+    
     <li><a href="#method-i-ital">#ital</a>
     
     <li><a href="#method-i-limit">#limit</a>
@@ -113,6 +115,8 @@
     <li><a href="#method-i-to_label">#to_label</a>
     
     <li><a href="#method-i-to_model">#to_model</a>
+    
+    <li><a href="#method-i-to_number">#to_number</a>
     
     <li><a href="#method-i-uline">#uline</a>
     
@@ -287,7 +291,7 @@
 
           
           <div class="method-source-code" id="add_brs-source">
-            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 191</span>
+            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 203</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">add_brs</span>
   <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&quot;\n&quot;</span>, <span class="ruby-string">&quot;&lt;br /&gt;&quot;</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -319,7 +323,7 @@
 
           
           <div class="method-source-code" id="bold-source">
-            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 163</span>
+            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 175</span>
   <span class="ruby-keyword">def</span> <span class="ruby-identifier">bold</span>
 <span class="ruby-node">&quot;&lt;b&gt;#{self}&lt;/b&gt;&quot;</span>.<span class="ruby-identifier">html_safe</span>
   <span class="ruby-keyword">end</span></pre>
@@ -349,7 +353,7 @@
 
           
           <div class="method-source-code" id="clear_html-source">
-            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 141</span>
+            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 153</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">clear_html</span>(<span class="ruby-identifier">options</span> = {})
   <span class="ruby-constant">ActionView</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">full_sanitizer</span>.<span class="ruby-identifier">sanitize</span>(<span class="ruby-keyword">self</span>, <span class="ruby-value">:tags</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:tags</span>] )
 <span class="ruby-keyword">end</span></pre>
@@ -379,7 +383,7 @@
 
           
           <div class="method-source-code" id="colorize-source">
-            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 197</span>
+            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 209</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">colorize</span>(<span class="ruby-identifier">color_code</span>)
   <span class="ruby-node">&quot;\e[#{color_code};40m#{self}\e[0m&quot;</span>
 <span class="ruby-keyword">end</span></pre>
@@ -409,7 +413,7 @@
 
           
           <div class="method-source-code" id="de_2_int-source">
-            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 107</span>
+            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 119</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">de_2_int</span>
   <span class="ruby-identifier">str</span> = <span class="ruby-keyword">self</span>
   <span class="ruby-constant">CHARS_TO_REMOVE</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">de</span>, <span class="ruby-identifier">int</span><span class="ruby-operator">|</span>
@@ -444,7 +448,7 @@
 
           
           <div class="method-source-code" id="denumberize-source">
-            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 241</span>
+            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 253</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">denumberize</span>(<span class="ruby-identifier">options</span> = {})
   <span class="ruby-identifier">string_array</span> = <span class="ruby-constant">STRING_BASE</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;&quot;</span>)
   <span class="ruby-identifier">real_string</span> = <span class="ruby-string">&quot;&quot;</span>
@@ -479,7 +483,7 @@
 
           
           <div class="method-source-code" id="green-source">
-            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 205</span>
+            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 217</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">green</span>
   <span class="ruby-identifier">colorize</span>(<span class="ruby-value">32</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -491,6 +495,36 @@
 
         
       </div><!-- green-method -->
+
+    
+      <div id="method-i-gsub" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">gsub</span><span
+            class="method-args">(old, repl)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="gsub-source">
+            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 272</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">gsub</span>(<span class="ruby-identifier">old</span>, <span class="ruby-identifier">repl</span>)  
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-identifier">old</span>, <span class="ruby-identifier">repl</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- gsub-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- gsub-method -->
 
     
       <div id="method-i-ital" class="method-detail ">
@@ -509,7 +543,7 @@
 
           
           <div class="method-source-code" id="ital-source">
-            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 167</span>
+            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 179</span>
   <span class="ruby-keyword">def</span> <span class="ruby-identifier">ital</span>
 <span class="ruby-node">&quot;&lt;i&gt;#{self}&lt;/i&gt;&quot;</span>.<span class="ruby-identifier">html_safe</span>
   <span class="ruby-keyword">end</span></pre>
@@ -539,7 +573,7 @@
 
           
           <div class="method-source-code" id="limit-source">
-            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 116</span>
+            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 128</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">limit</span>(<span class="ruby-identifier">l</span>=<span class="ruby-value">20</span>)
   <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">l</span>
     <span class="ruby-identifier">s</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">size</span>
@@ -580,7 +614,7 @@
 
           
           <div class="method-source-code" id="nbsp-source">
-            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 179</span>
+            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 191</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">nbsp</span>
   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&quot; &quot;</span>, <span class="ruby-string">&quot;&amp;nbsp;&quot;</span>).<span class="ruby-identifier">html_safe</span>
 <span class="ruby-keyword">end</span></pre>
@@ -612,7 +646,7 @@
 
           
           <div class="method-source-code" id="numberize-source">
-            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 221</span>
+            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 233</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">numberize</span>(<span class="ruby-identifier">options</span> = {})
   <span class="ruby-comment"># Basisarray das alle zeichen enthält die verschlüsselt werden können</span>
   <span class="ruby-identifier">string_array</span> = <span class="ruby-constant">STRING_BASE</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;&quot;</span>)
@@ -658,7 +692,7 @@
 
           
           <div class="method-source-code" id="pink-source">
-            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 213</span>
+            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 225</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">pink</span>
   <span class="ruby-identifier">colorize</span>(<span class="ruby-value">35</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -688,7 +722,7 @@
 
           
           <div class="method-source-code" id="red-source">
-            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 201</span>
+            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 213</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">red</span>
   <span class="ruby-identifier">colorize</span>(<span class="ruby-value">31</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -718,7 +752,7 @@
 
           
           <div class="method-source-code" id="replace_entities-source">
-            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 183</span>
+            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 195</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">replace_entities</span>(<span class="ruby-identifier">mode</span> = <span class="ruby-value">:html</span>)
   <span class="ruby-identifier">str</span> = <span class="ruby-keyword">self</span>
   <span class="ruby-constant">Chars2Remove</span><span class="ruby-operator">::</span><span class="ruby-constant">ENTITIES</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">orig</span>, <span class="ruby-identifier">rep</span><span class="ruby-operator">|</span>
@@ -752,7 +786,7 @@
 
           
           <div class="method-source-code" id="replace_html-source">
-            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 145</span>
+            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 157</span>
   <span class="ruby-keyword">def</span> <span class="ruby-identifier">replace_html</span>(<span class="ruby-identifier">from</span>, <span class="ruby-identifier">to</span>)
     <span class="ruby-identifier">new_text</span> = <span class="ruby-keyword">self</span>
     <span class="ruby-identifier">new_text</span> = <span class="ruby-identifier">new_text</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-node">&quot;&lt;#{from}&gt;&quot;</span>, <span class="ruby-node">&quot;&lt;#{to}&gt;&quot;</span>)
@@ -785,7 +819,7 @@
 
           
           <div class="method-source-code" id="span-source">
-            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 171</span>
+            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 183</span>
   <span class="ruby-keyword">def</span> <span class="ruby-identifier">span</span>
 <span class="ruby-node">&quot;&lt;span&gt;#{self}&lt;/span&gt;&quot;</span>.<span class="ruby-identifier">html_safe</span>
   <span class="ruby-keyword">end</span></pre>
@@ -815,7 +849,7 @@
 
           
           <div class="method-source-code" id="to_a-source">
-            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 156</span>
+            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 168</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">to_a</span>
   <span class="ruby-keyword">return</span> [<span class="ruby-keyword">self</span>]
 <span class="ruby-keyword">end</span></pre>
@@ -847,7 +881,7 @@
           <div class="method-source-code" id="to_boolean-source">
             <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 46</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">to_boolean</span>
-  <span class="ruby-keyword">if</span> [<span class="ruby-string">'true'</span>, <span class="ruby-string">'True'</span>, <span class="ruby-string">'TRUE'</span>, <span class="ruby-string">'1'</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-keyword">self</span>)
+  <span class="ruby-keyword">if</span> [<span class="ruby-string">&#39;true&#39;</span>, <span class="ruby-string">&#39;True&#39;</span>, <span class="ruby-string">&#39;TRUE&#39;</span>, <span class="ruby-string">&#39;1&#39;</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-keyword">self</span>)
     <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
   <span class="ruby-keyword">else</span>
     <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
@@ -881,8 +915,10 @@
           <div class="method-source-code" id="to_date-source">
             <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 55</span>
   <span class="ruby-keyword">def</span> <span class="ruby-identifier">to_date</span>
-<span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/((0|1|2|3)[0-9]{1})\.(0[0-9]{1}|11|12)\.[0-9]{4}/</span>).<span class="ruby-identifier">nil?</span>
-    <span class="ruby-constant">Date</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;.&quot;</span>)[<span class="ruby-value">2</span>].<span class="ruby-identifier">to_i</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;.&quot;</span>)[<span class="ruby-value">1</span>].<span class="ruby-identifier">to_i</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;.&quot;</span>)[<span class="ruby-value">0</span>].<span class="ruby-identifier">to_i</span>)
+<span class="ruby-identifier">matched_date</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/((0|1|2|3)[0-9]{1})\.(0[0-9]{1}|11|12)\.[0-9]{4}/</span>)
+<span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;String has no date like DD.MM.YYYY&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">matched_date</span>.<span class="ruby-identifier">nil?</span>
+
+    <span class="ruby-constant">Date</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">matched_date</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;.&quot;</span>)[<span class="ruby-value">2</span>].<span class="ruby-identifier">to_i</span>, <span class="ruby-identifier">matched_date</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;.&quot;</span>)[<span class="ruby-value">1</span>].<span class="ruby-identifier">to_i</span>, <span class="ruby-identifier">matched_date</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;.&quot;</span>)[<span class="ruby-value">0</span>].<span class="ruby-identifier">to_i</span>)
   <span class="ruby-keyword">end</span></pre>
           </div><!-- to_date-source -->
           
@@ -910,7 +946,7 @@
 
           
           <div class="method-source-code" id="to_datetime-source">
-            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 134</span>
+            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 146</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">to_datetime</span>
   <span class="ruby-identifier">date</span>  = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot; &quot;</span>).<span class="ruby-identifier">first</span>
   <span class="ruby-identifier">time</span>  = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot; &quot;</span>).<span class="ruby-identifier">last</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;:&quot;</span>)
@@ -942,7 +978,7 @@
 
           
           <div class="method-source-code" id="to_foldername-source">
-            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 89</span>
+            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 101</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">to_foldername</span>(<span class="ruby-identifier">sep</span> = <span class="ruby-string">&quot;_&quot;</span>)
   <span class="ruby-comment"># deutsch umlaute ersetzen</span>
   <span class="ruby-identifier">parameterized_string</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/\ {2,}/</span> , <span class="ruby-string">&quot; &quot;</span>).<span class="ruby-identifier">de_2_int</span>
@@ -954,7 +990,7 @@
     <span class="ruby-comment"># No more than one of the separator in a row.</span>
     <span class="ruby-identifier">parameterized_string</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-node">/#{re_sep}{2,}/</span>, <span class="ruby-identifier">sep</span>)
     <span class="ruby-comment"># Remove leading/trailing separator.</span>
-    <span class="ruby-identifier">parameterized_string</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-node">/^#{re_sep}|#{re_sep}$/</span>, <span class="ruby-string">''</span>)
+    <span class="ruby-identifier">parameterized_string</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-node">/^#{re_sep}|#{re_sep}$/</span>, <span class="ruby-string">&#39;&#39;</span>)
   <span class="ruby-keyword">end</span>
   <span class="ruby-keyword">return</span> <span class="ruby-identifier">parameterized_string</span>
 <span class="ruby-keyword">end</span></pre>
@@ -984,7 +1020,7 @@
 
           
           <div class="method-source-code" id="to_glossar-source">
-            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 78</span>
+            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 90</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">to_glossar</span>(<span class="ruby-identifier">with</span> = <span class="ruby-string">&quot;&quot;</span>, <span class="ruby-identifier">options</span> = {<span class="ruby-value">:show_tooltip</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>})
   <span class="ruby-identifier">with</span> <span class="ruby-operator">||=</span> <span class="ruby-string">&quot;&quot;</span>
   <span class="ruby-identifier">attribute</span> = <span class="ruby-keyword">self</span>
@@ -993,7 +1029,7 @@
     <span class="ruby-constant">Glossar</span>.<span class="ruby-identifier">create</span>(<span class="ruby-value">:label</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">attribute</span>, <span class="ruby-value">:attribute_name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">attribute</span>)
   <span class="ruby-keyword">end</span>  
 
-  <span class="ruby-keyword">return</span> <span class="ruby-node">&quot;&lt;a href='#glossar_#{attribute.parameterize}' class='glossarlink_small'&gt;#{attribute}#{with}&lt;/a&gt;&quot;</span>.<span class="ruby-identifier">html_safe</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-node">&quot;&lt;a href=&#39;#glossar_#{attribute.parameterize}&#39; class=&#39;glossarlink_small&#39;&gt;#{attribute}#{with}&lt;/a&gt;&quot;</span>.<span class="ruby-identifier">html_safe</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- to_glossar-source -->
           
@@ -1021,13 +1057,12 @@
 
           
           <div class="method-source-code" id="to_label-source">
-            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 61</span>
+            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 74</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">to_label</span>(<span class="ruby-identifier">options</span> = {<span class="ruby-value">:show_tooltip</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>})
-  <span class="ruby-identifier">attribute</span> = <span class="ruby-keyword">self</span>
-  <span class="ruby-identifier">l</span> = <span class="ruby-constant">ConceptLabel</span><span class="ruby-operator">::</span><span class="ruby-constant">LABELS</span>[<span class="ruby-identifier">attribute</span>]
+  <span class="ruby-identifier">l</span> = <span class="ruby-constant">ConceptLabel</span><span class="ruby-operator">::</span><span class="ruby-constant">LABELS</span>[<span class="ruby-keyword">self</span>]
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">l</span>.<span class="ruby-identifier">nil?</span> 
-    <span class="ruby-constant">ConceptLabel</span>.<span class="ruby-identifier">create</span>(<span class="ruby-value">:label</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">attribute</span>, <span class="ruby-value">:attribute_name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">attribute</span>)<span class="ruby-comment"># rescue nil</span>
-    <span class="ruby-keyword">return</span> <span class="ruby-identifier">attribute</span>
+    <span class="ruby-constant">ConceptLabel</span>.<span class="ruby-identifier">create</span>(<span class="ruby-value">:label</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">self</span>, <span class="ruby-value">:attribute_name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">self</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>
   <span class="ruby-keyword">else</span>  
     <span class="ruby-keyword">unless</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:show_tooltip</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span>
       <span class="ruby-keyword">return</span> <span class="ruby-identifier">l</span>[<span class="ruby-value">:label</span>]
@@ -1062,7 +1097,7 @@
 
           
           <div class="method-source-code" id="to_model-source">
-            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 152</span>
+            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 164</span>
   <span class="ruby-keyword">def</span> <span class="ruby-identifier">to_model</span>
 <span class="ruby-keyword">self</span>.<span class="ruby-identifier">singularize</span>.<span class="ruby-identifier">camelize</span>.<span class="ruby-identifier">constantize</span>
   <span class="ruby-keyword">end</span></pre>
@@ -1074,6 +1109,43 @@
 
         
       </div><!-- to_model-method -->
+
+    
+      <div id="method-i-to_number" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_number</span><span
+            class="method-args">(type = :float)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="to_number-source">
+            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_number</span>(<span class="ruby-identifier">type</span> = <span class="ruby-value">:float</span>)
+  <span class="ruby-identifier">extract</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/[0-9\.,]{1,}/</span>).<span class="ruby-identifier">to_s</span>
+  <span class="ruby-identifier">final</span> = <span class="ruby-identifier">extract</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&quot;.&quot;</span>, <span class="ruby-string">&quot;&quot;</span>).<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&quot;,&quot;</span>, <span class="ruby-string">&quot;.&quot;</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">type</span> 
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:float</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">final</span>.<span class="ruby-identifier">to_f</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">final</span>.<span class="ruby-identifier">to_i</span>
+  <span class="ruby-keyword">end</span>    
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- to_number-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- to_number-method -->
 
     
       <div id="method-i-uline" class="method-detail ">
@@ -1092,7 +1164,7 @@
 
           
           <div class="method-source-code" id="uline-source">
-            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 175</span>
+            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 187</span>
   <span class="ruby-keyword">def</span> <span class="ruby-identifier">uline</span>
 <span class="ruby-node">&quot;&lt;u&gt;#{self}&lt;/u&gt;&quot;</span>.<span class="ruby-identifier">html_safe</span>
   <span class="ruby-keyword">end</span></pre>
@@ -1122,7 +1194,7 @@
 
           
           <div class="method-source-code" id="yellow-source">
-            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 209</span>
+            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 221</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">yellow</span>
   <span class="ruby-identifier">colorize</span>(<span class="ruby-value">33</span>)
 <span class="ruby-keyword">end</span></pre>
