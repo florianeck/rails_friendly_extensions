@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>module Numbers - Bla</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="module">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/numbers.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-c-prime_numbers">::prime_numbers</a>
+    
+    <li><a href="#method-i-alpha_sum">#alpha_sum</a>
+    
+    <li><a href="#method-i-days_to_months">#days_to_months</a>
+    
+    <li><a href="#method-i-defla">#defla</a>
+    
+    <li><a href="#method-i-even-3F">#even?</a>
+    
+    <li><a href="#method-i-fdiv">#fdiv</a>
+    
+    <li><a href="#method-i-get_closest">#get_closest</a>
+    
+    <li><a href="#method-i-infla">#infla</a>
+    
+    <li><a href="#method-i-max">#max</a>
+    
+    <li><a href="#method-i-min">#min</a>
+    
+    <li><a href="#method-i-min_max">#min_max</a>
+    
+    <li><a href="#method-i-nan-3F">#nan?</a>
+    
+    <li><a href="#method-i-odd-3F">#odd?</a>
+    
+    <li><a href="#method-i-to_de">#to_de</a>
+    
+    <li><a href="#method-i-to_euro">#to_euro</a>
+    
+    <li><a href="#method-i-to_q">#to_q</a>
+    
+    <li><a href="#method-i-to_time">#to_time</a>
+    
+    <li><a href="#method-i-to_years">#to_years</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./README_rdoc.html">README</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./SmartCurrency.html">SmartCurrency</a>
+  
+    <li><a href="./SmartCurrency/ClassMethods.html">SmartCurrency::ClassMethods</a>
+  
+    <li><a href="./SmartCurrency/InstanceMethods.html">SmartCurrency::InstanceMethods</a>
+  
+    <li><a href="./Alphanumeric.html">Alphanumeric</a>
+  
+    <li><a href="./ArrayExt.html">ArrayExt</a>
+  
+    <li><a href="./Boolean.html">Boolean</a>
+  
+    <li><a href="./Chars2Remove.html">Chars2Remove</a>
+  
+    <li><a href="./DateNTime.html">DateNTime</a>
+  
+    <li><a href="./HashExt.html">HashExt</a>
+  
+    <li><a href="./Numbers.html">Numbers</a>
+  
+    <li><a href="./Object.html">Object</a>
+  
+    <li><a href="./StringAndMore.html">StringAndMore</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="module">module Numbers</h1>
+
+  <div id="description" class="description">
+    
+<p>Numeric Extensions</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-prime_numbers" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">prime_numbers</span><span
+            class="method-args">(limit = 1_000_000, options = {:verbose => false})</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>returns an array with all prime numbers up to limit</p>
+          
+
+          
+          <div class="method-source-code" id="prime_numbers-source">
+            <pre><span class="ruby-comment"># File lib/numbers.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">prime_numbers</span>(<span class="ruby-identifier">limit</span> = <span class="ruby-value">1_000_000</span>, <span class="ruby-identifier">options</span> = {<span class="ruby-value">:verbose</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>})
+  <span class="ruby-identifier">i</span> = <span class="ruby-value">1</span>; <span class="ruby-identifier">divisors</span> = [<span class="ruby-value">2</span>]; <span class="ruby-identifier">primzahlen</span> = []
+  <span class="ruby-identifier">t</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
+  <span class="ruby-keyword">while</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-identifier">limit</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">p</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-identifier">divisors</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">d</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">i</span><span class="ruby-operator">%</span><span class="ruby-identifier">d</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">d</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">i</span>
+        <span class="ruby-identifier">p</span> = <span class="ruby-keyword">false</span>
+        <span class="ruby-keyword">break</span>
+      <span class="ruby-keyword">end</span>  
+    <span class="ruby-keyword">end</span>
+    
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">p</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-identifier">i</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:verbose</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span>
+      <span class="ruby-identifier">primzahlen</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">i</span>
+    <span class="ruby-keyword">end</span>    
+    
+    <span class="ruby-identifier">i</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+    <span class="ruby-identifier">divisors</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">divisors</span>.<span class="ruby-identifier">last</span><span class="ruby-operator">+</span><span class="ruby-value">1</span>
+  <span class="ruby-keyword">end</span>  
+  
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Took #{(t-Time.now).abs.round(2)} sec.&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:verbose</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">primzahlen</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- prime_numbers-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- prime_numbers-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-alpha_sum" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">alpha_sum</span><span
+            class="method-args">(u,o)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="alpha_sum-source">
+            <pre><span class="ruby-comment"># File lib/numbers.rb, line 123</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">alpha_sum</span>(<span class="ruby-identifier">u</span>,<span class="ruby-identifier">o</span>)
+  (<span class="ruby-keyword">self</span><span class="ruby-operator">**</span><span class="ruby-identifier">u</span> <span class="ruby-operator">-</span> <span class="ruby-keyword">self</span><span class="ruby-operator">**</span>(<span class="ruby-identifier">o</span><span class="ruby-operator">+</span><span class="ruby-value">1</span>)).<span class="ruby-identifier">fdiv</span>(<span class="ruby-value">1</span><span class="ruby-operator">-</span><span class="ruby-keyword">self</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- alpha_sum-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- alpha_sum-method -->
+
+    
+      <div id="method-i-days_to_months" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">days_to_months</span><span
+            class="method-args">(options = {:s_days => "Tage", :s_months => "Monate", :s_sep => "und"})</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="days_to_months-source">
+            <pre><span class="ruby-comment"># File lib/numbers.rb, line 161</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">days_to_months</span>(<span class="ruby-identifier">options</span> = {<span class="ruby-value">:s_days</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Tage&quot;</span>, <span class="ruby-value">:s_months</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Monate&quot;</span>, <span class="ruby-value">:s_sep</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;und&quot;</span>})
+  <span class="ruby-identifier">x</span> = [<span class="ruby-keyword">self</span><span class="ruby-operator">/</span><span class="ruby-value">30</span>, <span class="ruby-keyword">self</span><span class="ruby-operator">%</span><span class="ruby-value">30</span>]
+  <span class="ruby-node">&quot;#{x[0]} #{options[:s_months]} #{options[:s_sep]} #{x[1]} #{options[:s_days]}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- days_to_months-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- days_to_months-method -->
+
+    
+      <div id="method-i-defla" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">defla</span><span
+            class="method-args">(y=40,f=2)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Deflate number, y = duration of years, f = percentage tested</p>
+          
+
+          
+          <div class="method-source-code" id="defla-source">
+            <pre><span class="ruby-comment"># File lib/numbers.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">defla</span>(<span class="ruby-identifier">y</span>=<span class="ruby-value">40</span>,<span class="ruby-identifier">f</span>=<span class="ruby-value">2</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">to_f</span>*((<span class="ruby-value">1</span><span class="ruby-operator">-</span>(<span class="ruby-identifier">f</span>.<span class="ruby-identifier">fdiv</span>(<span class="ruby-value">100</span>)))<span class="ruby-operator">**</span><span class="ruby-identifier">y</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- defla-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- defla-method -->
+
+    
+      <div id="method-i-even-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">even?</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="even-3F-source">
+            <pre><span class="ruby-comment"># File lib/numbers.rb, line 150</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">even?</span>
+  <span class="ruby-operator">!</span><span class="ruby-keyword">self</span>.<span class="ruby-identifier">odd?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- even-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- even-3F-method -->
+
+    
+      <div id="method-i-fdiv" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fdiv</span><span
+            class="method-args">(d)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <h1 id="method-i-fdiv-label-%3E+tested">&gt; tested</h1>
+          
+
+          
+          <div class="method-source-code" id="fdiv-source">
+            <pre><span class="ruby-comment"># File lib/numbers.rb, line 113</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fdiv</span>(<span class="ruby-identifier">d</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">to_f</span><span class="ruby-operator">/</span><span class="ruby-identifier">d</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- fdiv-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- fdiv-method -->
+
+    
+      <div id="method-i-get_closest" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_closest</span><span
+            class="method-args">(nrs = [], lim = :ceil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Prüfen, welche Zahl aus dem Array am nächsten an der aktuellen Dran ist
+tested</p>
+          
+
+          
+          <div class="method-source-code" id="get_closest-source">
+            <pre><span class="ruby-comment"># File lib/numbers.rb, line 77</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_closest</span>(<span class="ruby-identifier">nrs</span> = [], <span class="ruby-identifier">lim</span> = <span class="ruby-value">:ceil</span>)
+
+  <span class="ruby-identifier">com</span> = {}
+  <span class="ruby-identifier">com_a</span> = []
+  <span class="ruby-identifier">nrs</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">n</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">lim</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:ceil</span>
+      <span class="ruby-identifier">x</span> = ((<span class="ruby-keyword">self</span><span class="ruby-operator">+</span><span class="ruby-value">0.001</span>)<span class="ruby-operator">-</span><span class="ruby-identifier">n</span>).<span class="ruby-identifier">abs</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:floor</span>
+      <span class="ruby-identifier">x</span> = ((<span class="ruby-keyword">self</span><span class="ruby-operator">-</span><span class="ruby-value">0.001</span>)<span class="ruby-operator">-</span><span class="ruby-identifier">n</span>).<span class="ruby-identifier">abs</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;lim must be :ceil or :floor&quot;</span>
+    <span class="ruby-keyword">end</span>    
+    <span class="ruby-identifier">com</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">x</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">n</span>)
+    <span class="ruby-identifier">com_a</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">x</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">com</span>[<span class="ruby-identifier">com_a</span>.<span class="ruby-identifier">min</span>]  
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- get_closest-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- get_closest-method -->
+
+    
+      <div id="method-i-infla" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">infla</span><span
+            class="method-args">(y=40,f=2)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Inflate number, y = duration of years, f = percentage tested</p>
+          
+
+          
+          <div class="method-source-code" id="infla-source">
+            <pre><span class="ruby-comment"># File lib/numbers.rb, line 65</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">infla</span>(<span class="ruby-identifier">y</span>=<span class="ruby-value">40</span>,<span class="ruby-identifier">f</span>=<span class="ruby-value">2</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">to_f</span>*(<span class="ruby-identifier">f</span>.<span class="ruby-identifier">to_q</span><span class="ruby-operator">**</span><span class="ruby-identifier">y</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- infla-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- infla-method -->
+
+    
+      <div id="method-i-max" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">max</span><span
+            class="method-args">(ref)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>tested</p>
+          
+
+          
+          <div class="method-source-code" id="max-source">
+            <pre><span class="ruby-comment"># File lib/numbers.rb, line 102</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">max</span>(<span class="ruby-identifier">ref</span>)
+  [<span class="ruby-keyword">self</span>, <span class="ruby-identifier">ref</span>].<span class="ruby-identifier">max</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- max-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- max-method -->
+
+    
+      <div id="method-i-min" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">min</span><span
+            class="method-args">(ref)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>tested</p>
+          
+
+          
+          <div class="method-source-code" id="min-source">
+            <pre><span class="ruby-comment"># File lib/numbers.rb, line 97</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">min</span>(<span class="ruby-identifier">ref</span>)
+  [<span class="ruby-keyword">self</span>, <span class="ruby-identifier">ref</span>].<span class="ruby-identifier">min</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- min-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- min-method -->
+
+    
+      <div id="method-i-min_max" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">min_max</span><span
+            class="method-args">(m1, m2)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Wert zwischen den Grenzen, ansonsten ober-oder unterkante tested</p>
+          
+
+          
+          <div class="method-source-code" id="min_max-source">
+            <pre><span class="ruby-comment"># File lib/numbers.rb, line 108</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">min_max</span>(<span class="ruby-identifier">m1</span>, <span class="ruby-identifier">m2</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">min</span>(<span class="ruby-identifier">m2</span>).<span class="ruby-identifier">max</span>(<span class="ruby-identifier">m1</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- min_max-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- min_max-method -->
+
+    
+      <div id="method-i-nan-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">nan?</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="nan-3F-source">
+            <pre><span class="ruby-comment"># File lib/numbers.rb, line 170</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">nan?</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">to_f</span>.<span class="ruby-identifier">nan?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- nan-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- nan-3F-method -->
+
+    
+      <div id="method-i-odd-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">odd?</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="odd-3F-source">
+            <pre><span class="ruby-comment"># File lib/numbers.rb, line 146</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">odd?</span>
+  <span class="ruby-keyword">self</span><span class="ruby-operator">%</span><span class="ruby-value">2</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- odd-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- odd-3F-method -->
+
+    
+      <div id="method-i-to_de" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_de</span><span
+            class="method-args">(label=nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Convert Number to numeric german style without precision</p>
+          
+
+          
+          <div class="method-source-code" id="to_de-source">
+            <pre><span class="ruby-comment"># File lib/numbers.rb, line 53</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_de</span>(<span class="ruby-identifier">label</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">nr</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">round</span>.<span class="ruby-identifier">to_i</span>
+  <span class="ruby-identifier">result</span> = <span class="ruby-constant">ActionController</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">helpers</span>.<span class="ruby-identifier">number_with_precision</span>(<span class="ruby-keyword">self</span>, <span class="ruby-value">:precision</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>, <span class="ruby-value">:separator</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;,&quot;</span>, <span class="ruby-value">:delimiter</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;.&quot;</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">label</span>.<span class="ruby-identifier">blank?</span>
+    <span class="ruby-keyword">return</span> [<span class="ruby-identifier">result</span>, <span class="ruby-identifier">label</span>].<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;&amp;nbsp;&quot;</span>).<span class="ruby-identifier">html_safe</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">result</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- to_de-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- to_de-method -->
+
+    
+      <div id="method-i-to_euro" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_euro</span><span
+            class="method-args">(label = nil, options = {})</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Convert Number to numeric german style with precision</p>
+          
+
+          
+          <div class="method-source-code" id="to_euro-source">
+            <pre><span class="ruby-comment"># File lib/numbers.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_euro</span>(<span class="ruby-identifier">label</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">options</span>[<span class="ruby-value">:precision</span>] <span class="ruby-operator">||=</span> <span class="ruby-value">2</span>
+  <span class="ruby-identifier">result</span> = <span class="ruby-constant">ActionController</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">helpers</span>.<span class="ruby-identifier">number_with_precision</span>(<span class="ruby-keyword">self</span>, <span class="ruby-value">:precision</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:precision</span>], <span class="ruby-value">:separator</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;,&quot;</span>, <span class="ruby-value">:delimiter</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;.&quot;</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:pre</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-keyword">self</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">result</span> = <span class="ruby-node">&quot;+#{result}&quot;</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:pre</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-keyword">self</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">result</span> = <span class="ruby-node">&quot;-#{result}&quot;</span>
+  <span class="ruby-keyword">end</span>  
+    
+
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">label</span>.<span class="ruby-identifier">blank?</span>
+    <span class="ruby-keyword">return</span> [<span class="ruby-identifier">result</span>, <span class="ruby-identifier">label</span>].<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;&amp;nbsp;&quot;</span>).<span class="ruby-identifier">html_safe</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">result</span>
+  <span class="ruby-keyword">end</span>    
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- to_euro-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- to_euro-method -->
+
+    
+      <div id="method-i-to_q" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_q</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Finanzmathematik, Zinsen und so</p>
+          
+
+          
+          <div class="method-source-code" id="to_q-source">
+            <pre><span class="ruby-comment"># File lib/numbers.rb, line 119</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_q</span>
+  <span class="ruby-value">1</span><span class="ruby-operator">+</span>(<span class="ruby-keyword">self</span><span class="ruby-operator">/</span><span class="ruby-value">100.0</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- to_q-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- to_q-method -->
+
+    
+      <div id="method-i-to_time" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_time</span><span
+            class="method-args">(options = {})</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="to_time-source">
+            <pre><span class="ruby-comment"># File lib/numbers.rb, line 128</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_time</span>(<span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">values</span> = [ <span class="ruby-keyword">self</span>.<span class="ruby-identifier">to_i</span><span class="ruby-operator">/</span><span class="ruby-value">3600</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-operator">/</span> <span class="ruby-value">60</span> <span class="ruby-operator">%</span> <span class="ruby-value">60</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">to_i</span><span class="ruby-operator">%</span><span class="ruby-value">60</span> ].<span class="ruby-identifier">map</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">rjust</span>(<span class="ruby-value">2</span>, <span class="ruby-string">&#39;0&#39;</span>) }
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:split</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">return</span> {<span class="ruby-value">:h</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">values</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">round</span>, <span class="ruby-value">:m</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">values</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">round</span>, <span class="ruby-value">:s</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">values</span>[<span class="ruby-value">2</span>].<span class="ruby-identifier">round</span>}
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:discard_hour</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">values</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&quot;00&quot;</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">values</span>[<span class="ruby-value">1</span>,<span class="ruby-value">2</span>].<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;:&#39;</span>)
+  <span class="ruby-keyword">else</span>  
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">values</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;:&#39;</span>)
+  <span class="ruby-keyword">end</span>  
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- to_time-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- to_time-method -->
+
+    
+      <div id="method-i-to_years" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_years</span><span
+            class="method-args">(options = {:s_years => "Jahre", :s_months => "Monate", :s_sep => "und"})</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Cals</p>
+          
+
+          
+          <div class="method-source-code" id="to_years-source">
+            <pre><span class="ruby-comment"># File lib/numbers.rb, line 156</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_years</span>(<span class="ruby-identifier">options</span> = {<span class="ruby-value">:s_years</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Jahre&quot;</span>, <span class="ruby-value">:s_months</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Monate&quot;</span>, <span class="ruby-value">:s_sep</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;und&quot;</span>})
+  <span class="ruby-identifier">x</span> = [<span class="ruby-keyword">self</span><span class="ruby-operator">/</span><span class="ruby-value">12</span>, <span class="ruby-keyword">self</span><span class="ruby-operator">%</span><span class="ruby-value">12</span>]
+  <span class="ruby-node">&quot;#{x[0]} #{options[:s_years]} #{options[:s_sep]} #{x[1]} #{options[:s_months]}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- to_years-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- to_years-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.2.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

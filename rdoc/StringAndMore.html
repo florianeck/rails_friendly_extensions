@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>module StringAndMore - Bla</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="module">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/string_and_more.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-c-random_string">::random_string</a>
+    
+    <li><a href="#method-i-add_brs">#add_brs</a>
+    
+    <li><a href="#method-i-bold">#bold</a>
+    
+    <li><a href="#method-i-clear_html">#clear_html</a>
+    
+    <li><a href="#method-i-colorize">#colorize</a>
+    
+    <li><a href="#method-i-de_2_int">#de_2_int</a>
+    
+    <li><a href="#method-i-denumberize">#denumberize</a>
+    
+    <li><a href="#method-i-green">#green</a>
+    
+    <li><a href="#method-i-gsub">#gsub</a>
+    
+    <li><a href="#method-i-ital">#ital</a>
+    
+    <li><a href="#method-i-limit">#limit</a>
+    
+    <li><a href="#method-i-nbsp">#nbsp</a>
+    
+    <li><a href="#method-i-numberize">#numberize</a>
+    
+    <li><a href="#method-i-pink">#pink</a>
+    
+    <li><a href="#method-i-red">#red</a>
+    
+    <li><a href="#method-i-replace_entities">#replace_entities</a>
+    
+    <li><a href="#method-i-replace_html">#replace_html</a>
+    
+    <li><a href="#method-i-span">#span</a>
+    
+    <li><a href="#method-i-to_a">#to_a</a>
+    
+    <li><a href="#method-i-to_boolean">#to_boolean</a>
+    
+    <li><a href="#method-i-to_date">#to_date</a>
+    
+    <li><a href="#method-i-to_datetime">#to_datetime</a>
+    
+    <li><a href="#method-i-to_foldername">#to_foldername</a>
+    
+    <li><a href="#method-i-to_glossar">#to_glossar</a>
+    
+    <li><a href="#method-i-to_label">#to_label</a>
+    
+    <li><a href="#method-i-to_model">#to_model</a>
+    
+    <li><a href="#method-i-to_number">#to_number</a>
+    
+    <li><a href="#method-i-uline">#uline</a>
+    
+    <li><a href="#method-i-yellow">#yellow</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./README_rdoc.html">README</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./SmartCurrency.html">SmartCurrency</a>
+  
+    <li><a href="./SmartCurrency/ClassMethods.html">SmartCurrency::ClassMethods</a>
+  
+    <li><a href="./SmartCurrency/InstanceMethods.html">SmartCurrency::InstanceMethods</a>
+  
+    <li><a href="./Alphanumeric.html">Alphanumeric</a>
+  
+    <li><a href="./ArrayExt.html">ArrayExt</a>
+  
+    <li><a href="./Boolean.html">Boolean</a>
+  
+    <li><a href="./Chars2Remove.html">Chars2Remove</a>
+  
+    <li><a href="./DateNTime.html">DateNTime</a>
+  
+    <li><a href="./HashExt.html">HashExt</a>
+  
+    <li><a href="./Numbers.html">Numbers</a>
+  
+    <li><a href="./Object.html">Object</a>
+  
+    <li><a href="./StringAndMore.html">StringAndMore</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="module">module StringAndMore</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <!-- Constants -->
+    <section id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt id="CHARS_TO_REMOVE">CHARS_TO_REMOVE
+        
+        <dd class="description"><p>List with internation chars and their ASCII replacement</p>
+        
+      
+        <dt id="RANDOM_CHARS">RANDOM_CHARS
+        
+        <dd class="description">
+        
+      
+        <dt id="STRING_BASE">STRING_BASE
+        
+        <dd class="description"><p>Array with all strings which can be encrypted</p>
+        
+      
+        <dt id="STRING_CHARSETS">STRING_CHARSETS
+        
+        <dd class="description"><p>String charsets used for numeric encryption</p>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-random_string" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">random_string</span><span
+            class="method-args">(l=12, mode = :all)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns random String, for Passwords, Captachs etc.. could create :upcase,
+:downcase, :numbers or :all</p>
+          
+
+          
+          <div class="method-source-code" id="random_string-source">
+            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">random_string</span>(<span class="ruby-identifier">l</span>=<span class="ruby-value">12</span>, <span class="ruby-identifier">mode</span> = <span class="ruby-value">:all</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">mode</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:all</span>
+    <span class="ruby-identifier">base</span> = <span class="ruby-constant">String</span><span class="ruby-operator">::</span><span class="ruby-constant">RANDOM_CHARS</span>.<span class="ruby-identifier">values</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;&quot;</span>).<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;&quot;</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">base</span> = <span class="ruby-constant">String</span><span class="ruby-operator">::</span><span class="ruby-constant">RANDOM_CHARS</span>[<span class="ruby-identifier">mode</span>].<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;&quot;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">str</span> = <span class="ruby-string">&quot;&quot;</span>
+
+  <span class="ruby-identifier">l</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword">do</span> 
+    <span class="ruby-identifier">str</span> <span class="ruby-operator">&lt;&lt;</span>  <span class="ruby-identifier">base</span>.<span class="ruby-identifier">shuffle</span>[<span class="ruby-identifier">rand</span>(<span class="ruby-identifier">base</span>.<span class="ruby-identifier">size</span><span class="ruby-operator">-</span><span class="ruby-value">1</span>)]
+  <span class="ruby-keyword">end</span>    
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">str</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- random_string-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- random_string-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-add_brs" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_brs</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="add_brs-source">
+            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 203</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_brs</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&quot;\n&quot;</span>, <span class="ruby-string">&quot;&lt;br /&gt;&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- add_brs-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- add_brs-method -->
+
+    
+      <div id="method-i-bold" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">bold</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <h2 id="method-i-bold-label-HTML+Styling">HTML Styling</h2>
+
+<pre>as the function names say</pre>
+          
+
+          
+          <div class="method-source-code" id="bold-source">
+            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 175</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">bold</span>
+<span class="ruby-node">&quot;&lt;b&gt;#{self}&lt;/b&gt;&quot;</span>.<span class="ruby-identifier">html_safe</span>
+  <span class="ruby-keyword">end</span></pre>
+          </div><!-- bold-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- bold-method -->
+
+    
+      <div id="method-i-clear_html" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">clear_html</span><span
+            class="method-args">(options = {})</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="clear_html-source">
+            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 153</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">clear_html</span>(<span class="ruby-identifier">options</span> = {})
+  <span class="ruby-constant">ActionView</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">full_sanitizer</span>.<span class="ruby-identifier">sanitize</span>(<span class="ruby-keyword">self</span>, <span class="ruby-value">:tags</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:tags</span>] )
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- clear_html-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- clear_html-method -->
+
+    
+      <div id="method-i-colorize" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">colorize</span><span
+            class="method-args">(color_code)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <h2 id="method-i-colorize-label-colorization+in+console">colorization in console</h2>
+          
+
+          
+          <div class="method-source-code" id="colorize-source">
+            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 209</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">colorize</span>(<span class="ruby-identifier">color_code</span>)
+  <span class="ruby-node">&quot;\e[#{color_code};40m#{self}\e[0m&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- colorize-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- colorize-method -->
+
+    
+      <div id="method-i-de_2_int" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">de_2_int</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="de_2_int-source">
+            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 119</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">de_2_int</span>
+  <span class="ruby-identifier">str</span> = <span class="ruby-keyword">self</span>
+  <span class="ruby-constant">CHARS_TO_REMOVE</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">de</span>, <span class="ruby-identifier">int</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">str</span> = <span class="ruby-identifier">str</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-identifier">de</span>, <span class="ruby-identifier">int</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">str</span> = <span class="ruby-identifier">str</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&quot;  &quot;</span>, <span class="ruby-string">&quot; &quot;</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">str</span>  
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- de_2_int-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- de_2_int-method -->
+
+    
+      <div id="method-i-denumberize" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">denumberize</span><span
+            class="method-args">(options = {})</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="denumberize-source">
+            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 253</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">denumberize</span>(<span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">string_array</span> = <span class="ruby-constant">STRING_BASE</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;&quot;</span>)
+  <span class="ruby-identifier">real_string</span> = <span class="ruby-string">&quot;&quot;</span>
+  (<span class="ruby-identifier">options</span>[<span class="ruby-value">:base_64</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span> <span class="ruby-operator">?</span> <span class="ruby-constant">Base64</span>.<span class="ruby-identifier">decode64</span>(<span class="ruby-keyword">self</span>) <span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>  ).<span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/[0-9]{2}.{1}/</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">real_string</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">string_array</span>[<span class="ruby-identifier">s</span>.<span class="ruby-identifier">first</span>(<span class="ruby-value">2</span>).<span class="ruby-identifier">to_i</span>]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">real_string</span>  
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- denumberize-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- denumberize-method -->
+
+    
+      <div id="method-i-green" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">green</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="green-source">
+            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 217</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">green</span>
+  <span class="ruby-identifier">colorize</span>(<span class="ruby-value">32</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- green-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- green-method -->
+
+    
+      <div id="method-i-gsub" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">gsub</span><span
+            class="method-args">(old, repl)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="gsub-source">
+            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 272</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">gsub</span>(<span class="ruby-identifier">old</span>, <span class="ruby-identifier">repl</span>)  
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-identifier">old</span>, <span class="ruby-identifier">repl</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- gsub-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- gsub-method -->
+
+    
+      <div id="method-i-ital" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ital</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ital-source">
+            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 179</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">ital</span>
+<span class="ruby-node">&quot;&lt;i&gt;#{self}&lt;/i&gt;&quot;</span>.<span class="ruby-identifier">html_safe</span>
+  <span class="ruby-keyword">end</span></pre>
+          </div><!-- ital-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- ital-method -->
+
+    
+      <div id="method-i-limit" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">limit</span><span
+            class="method-args">(l=20)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="limit-source">
+            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 128</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">limit</span>(<span class="ruby-identifier">l</span>=<span class="ruby-value">20</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">l</span>
+    <span class="ruby-identifier">s</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">size</span>
+    <span class="ruby-identifier">s2</span> = (((<span class="ruby-keyword">self</span>.<span class="ruby-identifier">size</span><span class="ruby-operator">-</span><span class="ruby-value">1</span>)<span class="ruby-operator">/</span><span class="ruby-value">2</span>).<span class="ruby-identifier">round</span>)
+    <span class="ruby-identifier">first</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">slice</span>(<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-identifier">s2</span>)
+<span class="ruby-identifier">last</span>  = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">slice</span>(<span class="ruby-identifier">s2</span><span class="ruby-operator">+</span><span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>)
+      
+<span class="ruby-identifier">l1</span> = (<span class="ruby-identifier">l</span><span class="ruby-operator">/</span><span class="ruby-value">2</span>).<span class="ruby-identifier">round</span>
+      
+    <span class="ruby-node">&quot;#{first.first(l1)}...#{last.last(l1)}&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>
+  <span class="ruby-keyword">end</span>    
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- limit-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- limit-method -->
+
+    
+      <div id="method-i-nbsp" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">nbsp</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="nbsp-source">
+            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 191</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">nbsp</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&quot; &quot;</span>, <span class="ruby-string">&quot;&amp;nbsp;&quot;</span>).<span class="ruby-identifier">html_safe</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- nbsp-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- nbsp-method -->
+
+    
+      <div id="method-i-numberize" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">numberize</span><span
+            class="method-args">(options = {})</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <h2 id="method-i-numberize-label-Numerische+encription">Numerische encription</h2>
+
+<pre>cool thing for simple encrypt and decrypt strings</pre>
+          
+
+          
+          <div class="method-source-code" id="numberize-source">
+            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 233</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">numberize</span>(<span class="ruby-identifier">options</span> = {})
+  <span class="ruby-comment"># Basisarray das alle zeichen enthält die verschlüsselt werden können</span>
+  <span class="ruby-identifier">string_array</span> = <span class="ruby-constant">STRING_BASE</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;&quot;</span>)
+
+  <span class="ruby-comment"># Nur Zahlen und buchstaben für die verschlüsselung/mix nehmen wg. URLs</span>
+  <span class="ruby-identifier">string_array_filtered</span> = <span class="ruby-identifier">string_array</span>.<span class="ruby-identifier">select</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span> <span class="ruby-operator">!</span><span class="ruby-identifier">s</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/[a-zA-Z0-9\-_]/</span>).<span class="ruby-identifier">nil?</span> }
+  <span class="ruby-identifier">splitted</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;&quot;</span>)
+
+  <span class="ruby-identifier">numbered_string</span> = <span class="ruby-string">&quot;&quot;</span>
+
+  <span class="ruby-identifier">splitted</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">position</span> = <span class="ruby-identifier">string_array</span>.<span class="ruby-identifier">index</span>(<span class="ruby-identifier">s</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">position</span>.<span class="ruby-identifier">nil?</span>
+      <span class="ruby-identifier">numbered_string</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">position</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">rjust</span>(<span class="ruby-value">2</span>, <span class="ruby-string">&quot;0&quot;</span>)<span class="ruby-operator">+</span><span class="ruby-identifier">string_array_filtered</span>[<span class="ruby-identifier">rand</span>(<span class="ruby-identifier">string_array_filtered</span>.<span class="ruby-identifier">size</span><span class="ruby-operator">-</span><span class="ruby-value">1</span>)])
+    <span class="ruby-keyword">end</span>  
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:base_64</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span> <span class="ruby-operator">?</span> <span class="ruby-constant">Base64</span>.<span class="ruby-identifier">encode64</span>(<span class="ruby-identifier">numbered_string</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">numbered_string</span>  
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- numberize-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- numberize-method -->
+
+    
+      <div id="method-i-pink" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">pink</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="pink-source">
+            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 225</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">pink</span>
+  <span class="ruby-identifier">colorize</span>(<span class="ruby-value">35</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- pink-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- pink-method -->
+
+    
+      <div id="method-i-red" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">red</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="red-source">
+            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 213</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">red</span>
+  <span class="ruby-identifier">colorize</span>(<span class="ruby-value">31</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- red-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- red-method -->
+
+    
+      <div id="method-i-replace_entities" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">replace_entities</span><span
+            class="method-args">(mode = :html)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="replace_entities-source">
+            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 195</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">replace_entities</span>(<span class="ruby-identifier">mode</span> = <span class="ruby-value">:html</span>)
+  <span class="ruby-identifier">str</span> = <span class="ruby-keyword">self</span>
+  <span class="ruby-constant">Chars2Remove</span><span class="ruby-operator">::</span><span class="ruby-constant">ENTITIES</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">orig</span>, <span class="ruby-identifier">rep</span><span class="ruby-operator">|</span>
+     <span class="ruby-identifier">str</span> = <span class="ruby-identifier">str</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-identifier">orig</span>, <span class="ruby-identifier">rep</span>[<span class="ruby-identifier">mode</span>])
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">str</span>.<span class="ruby-identifier">html_safe</span>  
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- replace_entities-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- replace_entities-method -->
+
+    
+      <div id="method-i-replace_html" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">replace_html</span><span
+            class="method-args">(from, to)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="replace_html-source">
+            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 157</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">replace_html</span>(<span class="ruby-identifier">from</span>, <span class="ruby-identifier">to</span>)
+    <span class="ruby-identifier">new_text</span> = <span class="ruby-keyword">self</span>
+    <span class="ruby-identifier">new_text</span> = <span class="ruby-identifier">new_text</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-node">&quot;&lt;#{from}&gt;&quot;</span>, <span class="ruby-node">&quot;&lt;#{to}&gt;&quot;</span>)
+<span class="ruby-identifier">new_text</span> = <span class="ruby-identifier">new_text</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-node">&quot;&lt;/#{from}&gt;&quot;</span>, <span class="ruby-node">&quot;&lt;/#{to}&gt;&quot;</span>)
+<span class="ruby-keyword">return</span> <span class="ruby-identifier">new_text</span>
+  <span class="ruby-keyword">end</span></pre>
+          </div><!-- replace_html-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- replace_html-method -->
+
+    
+      <div id="method-i-span" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">span</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="span-source">
+            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 183</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">span</span>
+<span class="ruby-node">&quot;&lt;span&gt;#{self}&lt;/span&gt;&quot;</span>.<span class="ruby-identifier">html_safe</span>
+  <span class="ruby-keyword">end</span></pre>
+          </div><!-- span-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- span-method -->
+
+    
+      <div id="method-i-to_a" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_a</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="to_a-source">
+            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 168</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_a</span>
+  <span class="ruby-keyword">return</span> [<span class="ruby-keyword">self</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- to_a-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- to_a-method -->
+
+    
+      <div id="method-i-to_boolean" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_boolean</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Extract boolean status from string</p>
+          
+
+          
+          <div class="method-source-code" id="to_boolean-source">
+            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_boolean</span>
+  <span class="ruby-keyword">if</span> [<span class="ruby-string">&#39;true&#39;</span>, <span class="ruby-string">&#39;True&#39;</span>, <span class="ruby-string">&#39;TRUE&#39;</span>, <span class="ruby-string">&#39;1&#39;</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-keyword">self</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- to_boolean-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- to_boolean-method -->
+
+    
+      <div id="method-i-to_date" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_date</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create string with german date format to Date</p>
+          
+
+          
+          <div class="method-source-code" id="to_date-source">
+            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 55</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">to_date</span>
+<span class="ruby-identifier">matched_date</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/((0|1|2|3)[0-9]{1})\.(0[0-9]{1}|11|12)\.[0-9]{4}/</span>)
+<span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;String has no date like DD.MM.YYYY&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">matched_date</span>.<span class="ruby-identifier">nil?</span>
+
+    <span class="ruby-constant">Date</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">matched_date</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;.&quot;</span>)[<span class="ruby-value">2</span>].<span class="ruby-identifier">to_i</span>, <span class="ruby-identifier">matched_date</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;.&quot;</span>)[<span class="ruby-value">1</span>].<span class="ruby-identifier">to_i</span>, <span class="ruby-identifier">matched_date</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;.&quot;</span>)[<span class="ruby-value">0</span>].<span class="ruby-identifier">to_i</span>)
+  <span class="ruby-keyword">end</span></pre>
+          </div><!-- to_date-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- to_date-method -->
+
+    
+      <div id="method-i-to_datetime" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_datetime</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="to_datetime-source">
+            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 146</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_datetime</span>
+  <span class="ruby-identifier">date</span>  = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot; &quot;</span>).<span class="ruby-identifier">first</span>
+  <span class="ruby-identifier">time</span>  = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot; &quot;</span>).<span class="ruby-identifier">last</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;:&quot;</span>)
+  <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">date</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;.&quot;</span>)[<span class="ruby-value">2</span>].<span class="ruby-identifier">to_i</span>, <span class="ruby-identifier">date</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;.&quot;</span>)[<span class="ruby-value">1</span>].<span class="ruby-identifier">to_i</span>, <span class="ruby-identifier">date</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;.&quot;</span>)[<span class="ruby-value">0</span>].<span class="ruby-identifier">to_i</span>, <span class="ruby-identifier">time</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">to_i</span>, <span class="ruby-identifier">time</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">to_i</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- to_datetime-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- to_datetime-method -->
+
+    
+      <div id="method-i-to_foldername" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_foldername</span><span
+            class="method-args">(sep = "_")</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="to_foldername-source">
+            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 101</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_foldername</span>(<span class="ruby-identifier">sep</span> = <span class="ruby-string">&quot;_&quot;</span>)
+  <span class="ruby-comment"># deutsch umlaute ersetzen</span>
+  <span class="ruby-identifier">parameterized_string</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/\ {2,}/</span> , <span class="ruby-string">&quot; &quot;</span>).<span class="ruby-identifier">de_2_int</span>
+
+  <span class="ruby-comment"># Turn unwanted chars into the separator</span>
+  <span class="ruby-identifier">parameterized_string</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp">/[^a-zA-Z0-9ÄÖÜöäüß\-_]+/</span>, <span class="ruby-identifier">sep</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">sep</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">sep</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">re_sep</span> = <span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">escape</span>(<span class="ruby-identifier">sep</span>)
+    <span class="ruby-comment"># No more than one of the separator in a row.</span>
+    <span class="ruby-identifier">parameterized_string</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-node">/#{re_sep}{2,}/</span>, <span class="ruby-identifier">sep</span>)
+    <span class="ruby-comment"># Remove leading/trailing separator.</span>
+    <span class="ruby-identifier">parameterized_string</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-node">/^#{re_sep}|#{re_sep}$/</span>, <span class="ruby-string">&#39;&#39;</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">parameterized_string</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- to_foldername-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- to_foldername-method -->
+
+    
+      <div id="method-i-to_glossar" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_glossar</span><span
+            class="method-args">(with = "", options = {:show_tooltip => false})</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="to_glossar-source">
+            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 90</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_glossar</span>(<span class="ruby-identifier">with</span> = <span class="ruby-string">&quot;&quot;</span>, <span class="ruby-identifier">options</span> = {<span class="ruby-value">:show_tooltip</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>})
+  <span class="ruby-identifier">with</span> <span class="ruby-operator">||=</span> <span class="ruby-string">&quot;&quot;</span>
+  <span class="ruby-identifier">attribute</span> = <span class="ruby-keyword">self</span>
+  <span class="ruby-identifier">l</span> = <span class="ruby-constant">Glossar</span>.<span class="ruby-identifier">find_by_attribute_name</span>(<span class="ruby-identifier">attribute</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">l</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-constant">Glossar</span>.<span class="ruby-identifier">create</span>(<span class="ruby-value">:label</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">attribute</span>, <span class="ruby-value">:attribute_name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">attribute</span>)
+  <span class="ruby-keyword">end</span>  
+
+  <span class="ruby-keyword">return</span> <span class="ruby-node">&quot;&lt;a href=&#39;#glossar_#{attribute.parameterize}&#39; class=&#39;glossarlink_small&#39;&gt;#{attribute}#{with}&lt;/a&gt;&quot;</span>.<span class="ruby-identifier">html_safe</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- to_glossar-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- to_glossar-method -->
+
+    
+      <div id="method-i-to_label" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_label</span><span
+            class="method-args">(options = {:show_tooltip => false})</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="to_label-source">
+            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 74</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_label</span>(<span class="ruby-identifier">options</span> = {<span class="ruby-value">:show_tooltip</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>})
+  <span class="ruby-identifier">l</span> = <span class="ruby-constant">ConceptLabel</span><span class="ruby-operator">::</span><span class="ruby-constant">LABELS</span>[<span class="ruby-keyword">self</span>]
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">l</span>.<span class="ruby-identifier">nil?</span> 
+    <span class="ruby-constant">ConceptLabel</span>.<span class="ruby-identifier">create</span>(<span class="ruby-value">:label</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">self</span>, <span class="ruby-value">:attribute_name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">self</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>
+  <span class="ruby-keyword">else</span>  
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:show_tooltip</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-identifier">l</span>[<span class="ruby-value">:label</span>]
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-identifier">l</span>[<span class="ruby-value">:tooltip</span>]
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>  
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- to_label-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- to_label-method -->
+
+    
+      <div id="method-i-to_model" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_model</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="to_model-source">
+            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 164</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">to_model</span>
+<span class="ruby-keyword">self</span>.<span class="ruby-identifier">singularize</span>.<span class="ruby-identifier">camelize</span>.<span class="ruby-identifier">constantize</span>
+  <span class="ruby-keyword">end</span></pre>
+          </div><!-- to_model-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- to_model-method -->
+
+    
+      <div id="method-i-to_number" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_number</span><span
+            class="method-args">(type = :float)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="to_number-source">
+            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_number</span>(<span class="ruby-identifier">type</span> = <span class="ruby-value">:float</span>)
+  <span class="ruby-identifier">extract</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/[0-9\.,]{1,}/</span>).<span class="ruby-identifier">to_s</span>
+  <span class="ruby-identifier">final</span> = <span class="ruby-identifier">extract</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&quot;.&quot;</span>, <span class="ruby-string">&quot;&quot;</span>).<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&quot;,&quot;</span>, <span class="ruby-string">&quot;.&quot;</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">type</span> 
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:float</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">final</span>.<span class="ruby-identifier">to_f</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">final</span>.<span class="ruby-identifier">to_i</span>
+  <span class="ruby-keyword">end</span>    
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- to_number-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- to_number-method -->
+
+    
+      <div id="method-i-uline" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">uline</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="uline-source">
+            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 187</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">uline</span>
+<span class="ruby-node">&quot;&lt;u&gt;#{self}&lt;/u&gt;&quot;</span>.<span class="ruby-identifier">html_safe</span>
+  <span class="ruby-keyword">end</span></pre>
+          </div><!-- uline-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- uline-method -->
+
+    
+      <div id="method-i-yellow" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">yellow</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="yellow-source">
+            <pre><span class="ruby-comment"># File lib/string_and_more.rb, line 221</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">yellow</span>
+  <span class="ruby-identifier">colorize</span>(<span class="ruby-value">33</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- yellow-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- yellow-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.2.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+
