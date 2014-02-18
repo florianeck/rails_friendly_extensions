@@ -53,6 +53,7 @@ module StringAndMore
   
     # Create string with german date format to Date
   	def to_date
+<<<<<<< HEAD
       # Try German
       matched_date = self.match(/((0|1|2|3)[0-9]{1})\.(0[0-9]{1}|10|11|12)\.[0-9]{4}/)
       
@@ -66,6 +67,12 @@ module StringAndMore
       end 
        
       raise ArgumentError, "String has no date like DD.MM.YYYY or YYYY-DD-MM" if matched_date.nil?
+=======
+      matched_date = self.match(/((0|1|2|3)[0-9]{1})\.(0[0-9]{1}|11|12)\.[0-9]{4}/)
+      raise ArgumentError, "String has no date like DD.MM.YYYY" if matched_date.nil?
+      
+  	  Date.new(matched_date.to_s.split(".")[2].to_i, matched_date.to_s.split(".")[1].to_i, matched_date.to_s.split(".")[0].to_i)
+>>>>>>> ad58e345c5de2638e34e44d69bb19b0ebebcd41e
   	end
     
     
@@ -93,11 +100,26 @@ module StringAndMore
         end
       end  
     end
+<<<<<<< HEAD
     
     def shuffle
       self.split("").sort_by {rand}.join.humanize
     end  
+=======
   
+>>>>>>> ad58e345c5de2638e34e44d69bb19b0ebebcd41e
+  
+  
+    def to_glossar(with = "", options = {:show_tooltip => false})
+      with ||= ""
+      attribute = self
+      l = Glossar.find_by_attribute_name(attribute)
+      if l.nil?
+        Glossar.create(:label => attribute, :attribute_name => attribute)
+      end  
+    
+      return "<a href='#glossar_#{attribute.parameterize}' class='glossarlink_small'>#{attribute}#{with}</a>".html_safe
+    end
   
     def to_foldername(sep = "_")
       # deutsch umlaute ersetzen
@@ -193,7 +215,11 @@ module StringAndMore
       self.gsub(" ", "&nbsp;").html_safe
     end  
   
+<<<<<<< HEAD
   	def replace_entities(mode = :html, options = {})
+=======
+  	def replace_entities(mode = :html)
+>>>>>>> ad58e345c5de2638e34e44d69bb19b0ebebcd41e
   	  str = self
   	  Chars2Remove::ENTITIES.each do |orig, rep|
   	     str = str.gsub(orig, rep[mode])
