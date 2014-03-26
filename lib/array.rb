@@ -164,7 +164,7 @@ module ArrayExt
     def to_sql
       return "(NULL)" if self.empty?
       if self.first.is_a?(Numeric)
-        return "(#{self.join(',')})"
+        return "(#{self.compact.join(',')})"
       else
         return "(#{self.map{|i| "'#{i.to_s}'"}.join(',')})"
       end    

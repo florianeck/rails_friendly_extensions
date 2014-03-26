@@ -9,6 +9,10 @@ class NumericTest < Test::Unit::TestCase
     #assert_equal 0.29.to_euro, "0,29"
   end
   
+  def test_number_should_convert_to_array
+    assert_equal 1.to_a, [1]
+  end  
+  
   # Test Math Functions  
   def test_math_infla_defla
     

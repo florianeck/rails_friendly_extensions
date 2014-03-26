@@ -7,6 +7,9 @@ module Numbers
     # Convert Number to numeric german style with precision
     def to_euro(label = nil, options = {})
       options[:precision] ||= 2
+      
+      options[:precision] = 0 if options[:fix_int] == true && self.is_a?(Integer)
+      
       result = ActionController::Base.helpers.number_with_precision(self, :precision => options[:precision], :separator => ",", :delimiter => ".")
     
       if options[:pre] == true && self > 0
@@ -25,12 +28,11 @@ module Numbers
   
     # Convert Number to numeric german style without precision
     def to_de(label=nil)
-      result = ActionController::Base.helpers.number_with_precision(self, :precision => 0, :separator => ",", :delimiter => ".")
-      if !label.blank?
-        return [result, label].join("&nbsp;").html_safe
-      else
-        return result
-      end
+      self.to_euro(label, :precision => 0)
+    end  
+    
+    def to_a
+      [self]
     end  
   
     # Inflate number, y = duration of years, f = percentage
@@ -108,6 +110,10 @@ module Numbers
         return values.join(':')
       end  
     end 
+    
+    def deg2rad
+      self * Math::PI / 180
+    end  
   
     
   end  

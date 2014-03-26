@@ -24,7 +24,7 @@ class ArrayTest < Test::Unit::TestCase
     assert_equal test_array.avg(:number), 4.5
   end
   
-  def test_array_avg_should_no_break_with_nil_and_emtpy
+  def test_array_avg_should_not_break_with_nil_and_emtpy
     assert_equal [3,nil].avg, 3
     assert_equal [].avg, 0
   end  

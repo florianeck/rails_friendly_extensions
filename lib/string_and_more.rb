@@ -40,6 +40,10 @@ module StringAndMore
       end    
       return str
     end
+    
+    def self.email_message_id(mail_domain)
+      "<#{Digest::SHA2.hexdigest(Time.now.to_i.to_s)}@#{mail_domain}>"
+    end  
   
   
     # Extract boolean status from string
@@ -81,17 +85,21 @@ module StringAndMore
     end  
   
     def to_label(options = {:show_tooltip => false})
-      l = ConceptLabel::LABELS[self]
-      if l.nil? 
-        ConceptLabel.create(:label => self, :attribute_name => self)
+      if FriendsLabel.table_exists?
+        l = FriendsLabel::LABELS[self]
+        if l.nil? 
+          FriendsLabel.create(:label => self, :attribute_name => self)
+          return self
+        else  
+          unless options[:show_tooltip] == true
+            return l[:label]
+          else
+            return l[:tooltip]
+          end
+        end  
+      else
         return self
-      else  
-        unless options[:show_tooltip] == true
-          return l[:label]
-        else
-          return l[:tooltip]
-        end
-      end  
+      end    
     end
     
     def shuffle
