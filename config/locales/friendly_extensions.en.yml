@@ -1,0 +1,4 @@
+en:
+  friendly_extensions:
+    'is_true': 'yes'
+    'is_false': 'no'
