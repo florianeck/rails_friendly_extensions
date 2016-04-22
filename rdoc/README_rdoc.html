@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>README - FriendlyExtensions</title>
+
+<link href="./fonts.css" rel="stylesheet">
+<link href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/navigation.js"></script>
+<script src="./js/search_index.js"></script>
+<script src="./js/search.js"></script>
+<script src="./js/searcher.js"></script>
+<script src="./js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./README_rdoc.html">README</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page README.rdoc">
+
+<p># rails_friendly_extensions</p>
+
+<p>[![Build Status](<a
+href="https://travis-ci.org/florianeck/rails_friendly_extensions.png?branch=master)](https://travis-ci.org/florianeck/rails_friendly_extensions">travis-ci.org/florianeck/rails_friendly_extensions.png?branch=master)](https://travis-ci.org/florianeck/rails_friendly_extensions</a>)</p>
+
+<p>This is my personal, useful lib to extend Rails basic methods for String,
+Date, Number, Hash and serveral other classes just for easy use…</p>
+
+<p>All in all, my first github project, trying to make some moves on new
+grounds or so… Just did it because i need this stuff, and some other  code
+i wrote in the last three years, for serveral projects, so its just
+comfortable for for me to use it as a &#39;shared component&#39;</p>
+
+<p>What ever, maybe it will be useful to someone,  neither its test-covered
+nor checked any other way. so use it at ur own risk.</p>
+
+<p>Up in here we have following tools: (just some examples for the best
+features, try the rest on ur own, it&#39;s all experimential, but&#39;s 
+yet kinda useful to me, so feel free to check out;-):</p>
+
+<p>Following Methods will be available for the Classes as listed below:</p>
+
+<p>## Class: Array ### .avg(attr) returns an average value of the attribute
+passed. E.g.: U have an Array of &#39;Orders&#39; which all have a
+&#39;price&#39; @orders.avg(:price) returns an average of all orders price</p>
+
+<p>### .sum_with_attribute(attr) returns the sum values of all items of the
+array. E.g.: U have an Array of &#39;Orders&#39; which all have a
+&#39;price&#39; @orders.sum_with_attribute(:price) returns a sum of all
+orders price. Special Feature:
+@orders.sum_with_attribute(“user.user_order_counts”) returns a sum of all
+orders made by the users who made the selected orders. That means, u can
+sum values retrievied from every kind of data selection based upon ur
+current array of data. (!) Marked as very cool feature!</p>
+
+<p>### .count_for(data) Easy function to find out how many items of the same
+type/data are included in an Array. E.g.:
+[1,2,4,5,1,5,6,1,2,3].count_for(1) returns 3 Works with Strings, <a
+href="Numbers.html">Numbers</a> and almost any other <a
+href="Object.html">Object</a></p>
+
+<p>### .seperate(count = 2) Seperates an array into &#39;count&#39; Arrays,
+each of them the same size. If Array.size is not %&#39;count&#39;, the last
+Array will take up the last items. E.g:</p>
+<ul><li><dl class="rdoc-list label-list"><dt>1,2,3,4].seperate(2) returns [[<a href="3,4">1,2],</a>
+<dd></dd></dl>
+</li><li><dl class="rdoc-list label-list"><dt>1,2,3,4,5,6,7].seperate(3) returns [[1, 2], [3, 4], [5, 6, 7]
+<dd></dd></dl>
+</li></ul>
+
+<p>### .stack(count = 2) Kinda similiar to &#39;.seperate&#39; buts works like
+that:</p>
+<ul><li><dl class="rdoc-list label-list"><dt>1,2,3,4,5,6,7].stack(2) = [[1, 2], [3, 4], [5, 6], [7]
+<dd></dd></dl>
+</li><li><dl class="rdoc-list label-list"><dt>1,2,3,4,5,6,7].stack(3) = [[1, 2, 3], [4, 5, 6], [7]
+<dd></dd></dl>
+</li></ul>
+
+<p>Divides all items of an Array into sets of &#39;count&#39;, starting from
+first item, so last set could maybe be smaller than &#39;count&#39;</p>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module ArrayExt - FriendlyExtensions</title>
+
+<link href="./fonts.css" rel="stylesheet">
+<link href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/navigation.js"></script>
+<script src="./js/search_index.js"></script>
+<script src="./js/search.js"></script>
+<script src="./js/searcher.js"></script>
+<script src="./js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-array_to_hash">#array_to_hash</a>
+    
+    <li ><a href="#method-i-avg">#avg</a>
+    
+    <li ><a href="#method-i-count_for">#count_for</a>
+    
+    <li ><a href="#method-i-except">#except</a>
+    
+    <li ><a href="#method-i-fill_with_sth">#fill_with_sth</a>
+    
+    <li ><a href="#method-i-interpolate">#interpolate</a>
+    
+    <li ><a href="#method-i-isec">#isec</a>
+    
+    <li ><a href="#method-i-json_labels">#json_labels</a>
+    
+    <li ><a href="#method-i-next">#next</a>
+    
+    <li ><a href="#method-i-seperate">#seperate</a>
+    
+    <li ><a href="#method-i-stack">#stack</a>
+    
+    <li ><a href="#method-i-sum">#sum</a>
+    
+    <li ><a href="#method-i-sum_with_attribute">#sum_with_attribute</a>
+    
+    <li ><a href="#method-i-to_sql">#to_sql</a>
+    
+    <li ><a href="#method-i-to_structured_hash">#to_structured_hash</a>
+    
+    <li ><a href="#method-i-to_text">#to_text</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-ArrayExt">
+  <h1 id="module-ArrayExt" class="module">
+    module ArrayExt
+  </h1>
+
+  <section class="description">
+    
+<p>Add the methods to the Array Class</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-array_to_hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">array_to_hash</span><span
+            class="method-args">(init_val = 0)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Generate a hash with the given array elements as keys and
+&#39;init_value&#39; as value</p>
+          
+          
+
+          
+          <div class="method-source-code" id="array_to_hash-source">
+            <pre><span class="ruby-comment"># File lib/array.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">array_to_hash</span>(<span class="ruby-identifier">init_val</span> = <span class="ruby-value">0</span>)
+  <span class="ruby-identifier">h</span> = {}
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span> <span class="ruby-identifier">h</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">x</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">init_val</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">x</span>.<span class="ruby-identifier">nil?</span> }
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">h</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-avg" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">avg</span><span
+            class="method-args">(attribute = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get avg. value from, either from numeric values or from values from a
+object included in array</p>
+          
+          
+
+          
+          <div class="method-source-code" id="avg-source">
+            <pre><span class="ruby-comment"># File lib/array.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">avg</span>(<span class="ruby-identifier">attribute</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">value</span> = <span class="ruby-keyword">self</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">attribute</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">value</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-keyword">nil</span>)
+    <span class="ruby-identifier">value</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">to_f</span> }
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">value</span> = <span class="ruby-keyword">self</span>
+    <span class="ruby-comment"># Bei fehlerhaften attribute wird nil gespeichert</span>
+    <span class="ruby-identifier">value</span> = <span class="ruby-identifier">value</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">attribute</span>.<span class="ruby-identifier">to_sym</span>).<span class="ruby-identifier">to_f</span> <span class="ruby-keyword">rescue</span> <span class="ruby-keyword">nil</span>}
+    <span class="ruby-comment"># Leere Werte löschen</span>
+    <span class="ruby-identifier">value</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment"># Divide by zero ausschließen</span>
+  <span class="ruby-identifier">value</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">size</span> = <span class="ruby-value">1</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">size</span> = <span class="ruby-identifier">value</span>.<span class="ruby-identifier">size</span>
+  <span class="ruby-identifier">value</span>.<span class="ruby-identifier">sum</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">size</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-count_for" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">count_for</span><span
+            class="method-args">(item)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>check the number of items included in the array</p>
+          
+          
+
+          
+          <div class="method-source-code" id="count_for-source">
+            <pre><span class="ruby-comment"># File lib/array.rb, line 103</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">count_for</span>(<span class="ruby-identifier">item</span>)
+  <span class="ruby-identifier">count</span> = <span class="ruby-value">0</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span> <span class="ruby-identifier">count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">x</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">item</span>}
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">count</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-except" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">except</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>like except for hash</p>
+          
+          
+
+          
+          <div class="method-source-code" id="except-source">
+            <pre><span class="ruby-comment"># File lib/array.rb, line 129</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">except</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">excluded</span> = <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">excluded</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-fill_with_sth" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fill_with_sth</span><span
+            class="method-args">(sth, size)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <h2 id="method-i-fill_with_sth-label-Untested+%2F+deprecated+functions+below%2C+should+be+moved+somewhere+else%21">Untested / deprecated functions below, should be moved somewhere else!<span><a href="#method-i-fill_with_sth-label-Untested+%2F+deprecated+functions+below%2C+should+be+moved+somewhere+else%21">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<pre>Ignore these functions, there are neither tested nor documented, use them for fun if you like but dont ask me ;-)</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="fill_with_sth-source">
+            <pre><span class="ruby-comment"># File lib/array.rb, line 175</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fill_with_sth</span>(<span class="ruby-identifier">sth</span>, <span class="ruby-identifier">size</span>)
+  <span class="ruby-identifier">ary_length</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">size</span>
+  <span class="ruby-identifier">diff</span> = <span class="ruby-identifier">size</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">ary_length</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">diff</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">pop</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">diff</span>){<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">sth</span>}
+    <span class="ruby-identifier">new_ary</span> = <span class="ruby-identifier">pop</span>.<span class="ruby-identifier">push</span>(<span class="ruby-keyword">self</span>).<span class="ruby-identifier">flatten!</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">new_ary</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-interpolate" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">interpolate</span><span
+            class="method-args">(filtered_value = nil, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="interpolate-source">
+            <pre><span class="ruby-comment"># File lib/array.rb, line 204</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">interpolate</span>(<span class="ruby-identifier">filtered_value</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-keyword">begin</span>
+  
+    <span class="ruby-identifier">int_start_value</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-identifier">int_end_value</span>   = <span class="ruby-keyword">nil</span>
+    <span class="ruby-identifier">int_from</span>        = <span class="ruby-value">0</span>
+    <span class="ruby-identifier">int_to</span>          = <span class="ruby-value">0</span> 
+    <span class="ruby-identifier">int_steps</span>       = <span class="ruby-value">0</span> 
+  
+    <span class="ruby-identifier">array_with_interpolation</span> = []
+  
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">x</span>,<span class="ruby-identifier">i</span><span class="ruby-operator">|</span> 
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">x</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">filtered_value</span>
+          <span class="ruby-comment"># Wenn der letze ein fehler war ist die strecke zuende</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">-</span><span class="ruby-value">1</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">filtered_value</span>
+          
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">i</span><span class="ruby-operator">-</span><span class="ruby-value">1</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+              <span class="ruby-comment"># Berechnung anstieg der linearfunktion zwischen Start-und Endpunkt</span>
+              <span class="ruby-comment"># </span>
+              <span class="ruby-identifier">m</span> = (<span class="ruby-keyword">self</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-value">1</span>]<span class="ruby-operator">-</span><span class="ruby-identifier">x</span>)
+            
+              <span class="ruby-identifier">array_with_interpolation</span>[<span class="ruby-value">0</span>] = <span class="ruby-identifier">x</span><span class="ruby-operator">-</span><span class="ruby-identifier">m</span>
+              <span class="ruby-identifier">array_with_interpolation</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">x</span>
+            
+            <span class="ruby-keyword">else</span>  
+              <span class="ruby-identifier">int_end_value</span> = <span class="ruby-identifier">x</span>
+              <span class="ruby-identifier">int_to</span>        = <span class="ruby-identifier">i</span>
+            
+              <span class="ruby-comment"># Berechnung anstieg der linearfunktion zwischen Start-und Endpunkt</span>
+              <span class="ruby-identifier">m</span> = (<span class="ruby-identifier">int_end_value</span><span class="ruby-operator">-</span><span class="ruby-identifier">int_start_value</span>).<span class="ruby-identifier">fdiv</span>((<span class="ruby-identifier">int_to</span><span class="ruby-operator">-</span><span class="ruby-identifier">int_from</span>))
+          
+              <span class="ruby-comment"># Fülle fehlende werte mit werten (y = mx + b)</span>
+              <span class="ruby-identifier">int_steps</span>.<span class="ruby-identifier">times</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">mi</span><span class="ruby-operator">|</span> <span class="ruby-identifier">array_with_interpolation</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">int_start_value</span><span class="ruby-operator">+</span>((<span class="ruby-identifier">mi</span><span class="ruby-operator">+</span><span class="ruby-value">1</span>)<span class="ruby-operator">*</span><span class="ruby-identifier">m</span>)) }
+              <span class="ruby-identifier">array_with_interpolation</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">int_end_value</span>
+          
+              <span class="ruby-comment"># Reset all values</span>
+              <span class="ruby-identifier">int_start_value</span> = <span class="ruby-identifier">int_end_value</span>
+              <span class="ruby-identifier">int_end_value</span>   = <span class="ruby-keyword">nil</span>
+              <span class="ruby-identifier">int_from</span>        = <span class="ruby-value">0</span>
+              <span class="ruby-identifier">int_to</span>          = <span class="ruby-value">0</span> 
+              <span class="ruby-identifier">int_steps</span>       = <span class="ruby-value">0</span>  
+              <span class="ruby-identifier">puts</span> <span class="ruby-identifier">array_with_interpolation</span>.<span class="ruby-identifier">inspect</span>
+            <span class="ruby-keyword">end</span>  
+          <span class="ruby-keyword">else</span>  
+            <span class="ruby-identifier">int_start_value</span> = <span class="ruby-identifier">x</span>
+            <span class="ruby-identifier">array_with_interpolation</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">x</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-comment"># Wenn letzer wert fehlerhaft  </span>
+        <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">size</span><span class="ruby-operator">-</span><span class="ruby-value">1</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">x</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">filtered_value</span>
+          <span class="ruby-comment"># Berechnung anstieg der linearfunktion zwischen Start-und Endpunkt</span>
+          <span class="ruby-comment"># Berechnung über gesamtes array</span>
+          <span class="ruby-identifier">m</span> = (<span class="ruby-identifier">array_with_interpolation</span>.<span class="ruby-identifier">last</span><span class="ruby-operator">-</span><span class="ruby-identifier">array_with_interpolation</span>.<span class="ruby-identifier">first</span>).<span class="ruby-identifier">fdiv</span>(<span class="ruby-identifier">array_with_interpolation</span>.<span class="ruby-identifier">size</span><span class="ruby-operator">-</span><span class="ruby-value">1</span>)
+          <span class="ruby-identifier">array_with_interpolation</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">array_with_interpolation</span>.<span class="ruby-identifier">last</span><span class="ruby-operator">+</span><span class="ruby-identifier">m</span>)
+        <span class="ruby-keyword">else</span>  
+          <span class="ruby-identifier">int_steps</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+          <span class="ruby-identifier">int_from</span> = <span class="ruby-identifier">i</span><span class="ruby-operator">-</span><span class="ruby-identifier">int_steps</span>
+        <span class="ruby-keyword">end</span>    
+  
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">int_start_value</span> = <span class="ruby-identifier">x</span>
+        <span class="ruby-identifier">array_with_interpolation</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">x</span>
+      <span class="ruby-keyword">end</span>    
+    
+    <span class="ruby-keyword">end</span>  
+  
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">array_with_interpolation</span>
+  <span class="ruby-keyword">rescue</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;WARNING: Interpolation not possible!&quot;</span>.<span class="ruby-identifier">red</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>
+  <span class="ruby-keyword">end</span>    
+  
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-isec" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">isec</span><span
+            class="method-args">(b)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Schnittmenge / Intersection zwischen 2 Arrays</p>
+          
+          
+
+          
+          <div class="method-source-code" id="isec-source">
+            <pre><span class="ruby-comment"># File lib/array.rb, line 123</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">isec</span>(<span class="ruby-identifier">b</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;#{b.inspect} is not an array&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">b</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Array</span>)
+  (<span class="ruby-keyword">self</span><span class="ruby-operator">-</span> (<span class="ruby-keyword">self</span><span class="ruby-operator">-</span><span class="ruby-identifier">b</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-json_labels" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">json_labels</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Generiert einen JSON-String aus einem Array mit Werten</p>
+          
+          
+
+          
+          <div class="method-source-code" id="json_labels-source">
+            <pre><span class="ruby-comment"># File lib/array.rb, line 189</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">json_labels</span>
+  <span class="ruby-identifier">json</span> = <span class="ruby-string">&quot;[&quot;</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">each_with_index</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">l</span>,<span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">json</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;{&quot;id&quot;: &quot;%s&quot;, &quot;text&quot;: &quot;%s&quot;}&#39;</span> <span class="ruby-operator">%</span> [<span class="ruby-identifier">i</span>, <span class="ruby-identifier">l</span>] ; <span class="ruby-identifier">json</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;,&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-value">1</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">size</span>}
+  <span class="ruby-identifier">json</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;]&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-next" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">next</span><span
+            class="method-args">(val, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>return the item after the given val in array returns val if no item found
+or val is not included toggle :cycle =&gt; true to continue search at
+beginn of array if end is reached</p>
+          
+          
+
+          
+          <div class="method-source-code" id="next-source">
+            <pre><span class="ruby-comment"># File lib/array.rb, line 113</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">next</span>(<span class="ruby-identifier">val</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">i</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">index</span>(<span class="ruby-identifier">val</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">val</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">i</span>.<span class="ruby-identifier">nil?</span>
+  
+  <span class="ruby-identifier">i</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">size</span><span class="ruby-operator">-</span><span class="ruby-value">1</span> <span class="ruby-operator">?</span>
+    (<span class="ruby-identifier">options</span>[<span class="ruby-value">:cycle</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">first</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">val</span>) <span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-value">1</span>] 
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-seperate" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">seperate</span><span
+            class="method-args">(n = 8)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>break array into n arrays</p>
+          
+          
+
+          
+          <div class="method-source-code" id="seperate-source">
+            <pre><span class="ruby-comment"># File lib/array.rb, line 135</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">seperate</span>(<span class="ruby-identifier">n</span> = <span class="ruby-value">8</span>)
+  <span class="ruby-identifier">f</span> = <span class="ruby-identifier">n</span>
+  <span class="ruby-identifier">aks_size</span>  = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">size</span>
+  <span class="ruby-identifier">rest</span>      = <span class="ruby-identifier">aks_size</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">f</span>
+
+  <span class="ruby-identifier">stack</span> = ((<span class="ruby-identifier">aks_size</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">rest</span>) <span class="ruby-operator">/</span> <span class="ruby-identifier">f</span>)
+
+  <span class="ruby-identifier">arrays</span> = (<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-identifier">f</span>).<span class="ruby-identifier">to_a</span>
+
+  <span class="ruby-identifier">arrays</span>.<span class="ruby-identifier">map!</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">first</span>(<span class="ruby-identifier">stack</span><span class="ruby-operator">*</span><span class="ruby-identifier">i</span>).<span class="ruby-identifier">last</span>(<span class="ruby-identifier">stack</span>) }
+  <span class="ruby-identifier">arrays</span>[<span class="ruby-value">-1</span>] <span class="ruby-operator">+=</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">last</span>(<span class="ruby-identifier">rest</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">rest</span> <span class="ruby-operator">!=</span> <span class="ruby-value">0</span>
+  <span class="ruby-comment">#arrays.last.pop if (arrays.last.last.empty? || arrays.last.last.blank?)</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">arrays</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-stack" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">stack</span><span
+            class="method-args">(n = 4)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>[1,2,3,5,6,7].stack(2)</p>
+
+<pre>will return [[1, 2], [3, 5], [6, 7]]</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="stack-source">
+            <pre><span class="ruby-comment"># File lib/array.rb, line 152</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">stack</span>(<span class="ruby-identifier">n</span> = <span class="ruby-value">4</span>)
+  <span class="ruby-identifier">arr</span> = []
+  <span class="ruby-identifier">i</span> = (<span class="ruby-keyword">self</span>.<span class="ruby-identifier">size</span>.<span class="ruby-identifier">to_f</span><span class="ruby-operator">/</span><span class="ruby-identifier">n</span>).<span class="ruby-identifier">ceil</span>
+  <span class="ruby-identifier">i</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">arr</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-keyword">self</span>[<span class="ruby-identifier">x</span><span class="ruby-operator">*</span><span class="ruby-identifier">n</span><span class="ruby-operator">..</span>(((<span class="ruby-identifier">x</span><span class="ruby-operator">+</span><span class="ruby-value">1</span>)<span class="ruby-operator">*</span><span class="ruby-identifier">n</span>)<span class="ruby-operator">-</span><span class="ruby-value">1</span>)]
+  <span class="ruby-keyword">end</span>    
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">arr</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sum" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sum</span><span
+            class="method-args">(identity = 0, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Use sum from Activesupport Sum is not a default in Ruby</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sum-source">
+            <pre><span class="ruby-comment"># File lib/array.rb, line 7</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sum</span>(<span class="ruby-identifier">identity</span> = <span class="ruby-value">0</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+    <span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>).<span class="ruby-identifier">sum</span>(<span class="ruby-identifier">identity</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">inject</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">sum</span>, <span class="ruby-identifier">element</span><span class="ruby-operator">|</span> <span class="ruby-identifier">sum</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">element</span> } <span class="ruby-operator">||</span> <span class="ruby-identifier">identity</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sum_with_attribute" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sum_with_attribute</span><span
+            class="method-args">(arg, opt =nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Sum up an array of objects with given attirbute Attributes can be given as
+symbol (:my_value will return obj.my_value) or as string (“user.my_value”
+will return my_value from user object which belongs to object in array)
+also, options could be passed, which could be *args or options hash</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sum_with_attribute-source">
+            <pre><span class="ruby-comment"># File lib/array.rb, line 75</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sum_with_attribute</span>(<span class="ruby-identifier">arg</span>, <span class="ruby-identifier">opt</span> =<span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">arg</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">compact</span>.<span class="ruby-identifier">sum</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">values</span> = []
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">arg</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Symbol</span>)
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> ((<span class="ruby-identifier">opt</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">i</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">arg</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">i</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">arg</span>, <span class="ruby-identifier">opt</span>)) <span class="ruby-keyword">rescue</span> <span class="ruby-value">0</span>) }.<span class="ruby-identifier">sum</span> 
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">arg</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>)
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">tag_methods</span> = <span class="ruby-identifier">arg</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;.&quot;</span>)  
+        <span class="ruby-identifier">tagx</span> = <span class="ruby-identifier">v</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">tag_methods</span>[<span class="ruby-value">0</span>])
+        <span class="ruby-identifier">tag_methods</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span>
+          <span class="ruby-comment"># Use options if last method in chain called</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">tag_methods</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>].<span class="ruby-identifier">last</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">x</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">opt</span>.<span class="ruby-identifier">nil?</span>
+            <span class="ruby-identifier">tagx</span> = <span class="ruby-identifier">tagx</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">x</span>,<span class="ruby-identifier">opt</span>)
+          <span class="ruby-keyword">else</span>  
+            <span class="ruby-identifier">tagx</span> = <span class="ruby-identifier">tagx</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">x</span>)
+          <span class="ruby-keyword">end</span>  
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">values</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">tagx</span>  
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-identifier">values</span>.<span class="ruby-identifier">compact</span>.<span class="ruby-identifier">sum</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_sql" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_sql</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Prepare array for use with mysql IN operator</p>
+          
+          
+
+          
+          <div class="method-source-code" id="to_sql-source">
+            <pre><span class="ruby-comment"># File lib/array.rb, line 163</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_sql</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;(NULL)&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Numeric</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-node">&quot;(#{self.compact.join(&#39;,&#39;)})&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-node">&quot;(#{self.map{|i| &quot;&#39;#{i.to_s}&#39;&quot;}.join(&#39;,&#39;)})&quot;</span>
+  <span class="ruby-keyword">end</span>    
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_structured_hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_structured_hash</span><span
+            class="method-args">(attribute, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="to_structured_hash-source">
+            <pre><span class="ruby-comment"># File lib/array.rb, line 44</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_structured_hash</span>(<span class="ruby-identifier">attribute</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">data</span> = {}
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">item</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">attribute</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Symbol</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:load_from_hash</span>] <span class="ruby-operator">!=</span> <span class="ruby-keyword">true</span>
+      <span class="ruby-identifier">key</span> = <span class="ruby-identifier">item</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">attribute</span>) <span class="ruby-keyword">rescue</span> <span class="ruby-string">&quot;&quot;</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">attribute</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Symbol</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:load_from_hash</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span>  
+      <span class="ruby-identifier">key</span> = <span class="ruby-identifier">item</span>[<span class="ruby-identifier">attribute</span>] <span class="ruby-keyword">rescue</span> <span class="ruby-string">&quot;&quot;</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">attribute</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>)
+      <span class="ruby-identifier">attribute_methods</span> = <span class="ruby-identifier">attribute</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;.&quot;</span>)  
+      <span class="ruby-identifier">key</span> = <span class="ruby-identifier">item</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">attribute_methods</span>[<span class="ruby-value">0</span>])
+      <span class="ruby-identifier">attribute_methods</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">key</span> = <span class="ruby-identifier">key</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">x</span>) <span class="ruby-keyword">rescue</span> <span class="ruby-string">&quot;&quot;</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">data</span>[<span class="ruby-identifier">key</span>].<span class="ruby-identifier">nil?</span>
+      <span class="ruby-identifier">data</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">key</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-identifier">item</span>])
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">data</span>[<span class="ruby-identifier">key</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">item</span>
+    <span class="ruby-keyword">end</span>      
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">data</span>  
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_text" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_text</span><span
+            class="method-args">(sep = "<br />")</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="to_text-source">
+            <pre><span class="ruby-comment"># File lib/array.rb, line 195</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_text</span>(<span class="ruby-identifier">sep</span> = <span class="ruby-string">&quot;&lt;br /&gt;&quot;</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">env</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;development&quot;</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;#REMOVED - use .join() - (17.12.2013, 15:18, Florian Eck)&quot;</span>
+  <span class="ruby-keyword">else</span>  
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">sep</span>)
+  <span class="ruby-keyword">end</span>  
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
