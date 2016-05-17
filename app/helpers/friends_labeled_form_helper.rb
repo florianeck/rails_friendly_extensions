@@ -14,15 +14,20 @@ module FriendsLabeledFormHelper
 
     if options[:errors]
       label_text << tooltip_box(options[:errors].to_text)
-    elsif ((options[:label].blank? && options[:tooltip].blank?) || !options[:tooltip].blank?) && options[:tooltip] != false
-      tooltip = (options[:tooltip] || method.to_label(:show_tooltip => true))
-      if !tooltip.blank? && options[:hide_tooltip] != true
-        # Setting Tooltip format for display in Browsertooltip
-        # line breaks in unicode
-        tooltip = tooltip.gsub(/\n|\<br(\ )?(\/)?\>/, "&#xA;")
-        # single to double quotes
-        tooltip = tooltip.gsub("'", '"')
-        label_text << tooltip_box(tooltip)
+    elsif !options[:hide_tooltip] == true
+      # check if tooltip is given by options
+      if options[:tooltip].present?
+        label_text << tooltip_box(options[:tooltip])
+      elsif #look for tooltips for field in locale
+        i18n_str = "form_tooltips.#{object_name}.#{method}"
+
+        tt = begin
+          I18n.t(i18n_str)
+        rescue
+          i18n_str
+        end
+
+        label_text << tooltip_box(tt)
       end
     end
 
