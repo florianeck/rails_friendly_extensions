@@ -27,7 +27,10 @@ module FriendsLabeledFormHelper
           i18n_str
         end
 
-        label_text << tooltip_box(tt)
+        # we dont want to see the empty boxes on production
+        unless Rails.env.production?
+          label_text << tooltip_box(tt)
+        end
       end
     end
 
