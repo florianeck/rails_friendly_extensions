@@ -13,7 +13,7 @@ module FriendsLabeledFormHelper
     label_text = "<span class='label-text'>#{label_name}</span>"
 
     if options[:errors]
-      label_text << tooltip_box(options[:errors].to_text)
+      label_text << tooltip_box(options[:errors].join("<br />"))
     elsif !options[:hide_tooltip] == true
       # check if tooltip is given by options
       if options[:tooltip].present?
