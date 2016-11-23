@@ -125,8 +125,12 @@ module FriendsLabeledFormBuilder
 
 
   def labeled_text_field(method, options = {})
-
-    options[:value] ||= (object.send(method) rescue nil )
+    # getting euro value if possible
+    if method_name.to_s.match(/euro|percent/)
+      options[:value] ||= (object.send(method) rescue nil).try(:to_euro)
+    else
+      options[:value] ||= (object.send(method) rescue nil )
+    end
     options[:label] ||= object.class.try(:human_attribute_name, method)
 
     options[:class] ||= ""
