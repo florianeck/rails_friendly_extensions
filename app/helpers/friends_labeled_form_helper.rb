@@ -125,16 +125,17 @@ module FriendsLabeledFormBuilder
 
 
   def labeled_text_field(method, options = {})
+    options[:class] ||= ""
+    options[:class] << " error" if ((!object.errors[method.to_sym].empty? && !object.new_record?) rescue false )
+
     # getting euro value if possible
-    if method_name.to_s.match(/euro|percent/)
+    if method.to_s.match(/euro|percent/)
       options[:value] ||= (object.send(method) rescue nil).try(:to_euro)
+      options[:class] << " euro-percent-value"
     else
       options[:value] ||= (object.send(method) rescue nil )
     end
     options[:label] ||= object.class.try(:human_attribute_name, method)
-
-    options[:class] ||= ""
-    options[:class] << " error" if ((!object.errors[method.to_sym].empty? && !object.new_record?) rescue false )
 
     options[:errors] = ((object.errors[method.to_sym].empty? ? nil : object.errors[method.to_sym]) rescue false )
 
