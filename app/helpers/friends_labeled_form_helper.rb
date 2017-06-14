@@ -53,7 +53,13 @@ module FriendsLabeledFormHelper
       label_options = options
     end
 
-    html = label_tag_for(object_name, method, label_options)
+    if options[:label_as_placeholder].present?
+      html = ""
+      options[:placeholder] = options[:label_as_placeholder]
+    else
+      html = label_tag_for(object_name, method, label_options)
+    end
+
     if options[:password] && options.delete(:password)
       html += password_field(object_name, method, options)
     else

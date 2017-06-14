@@ -2,7 +2,7 @@
 # Add the methods to the Array Class
 module ArrayExt
   Array.class_eval do
-  
+
     # Use sum from Activesupport
     # Sum is not a default in Ruby
     def sum(identity = 0, &block)
@@ -12,7 +12,7 @@ module ArrayExt
         inject { |sum, element| sum + element } || identity
       end
     end
-  
+
     # Get avg. value from, either from numeric values or from
     # values from a object included in array
     def avg(attribute = nil)
@@ -31,27 +31,27 @@ module ArrayExt
       value.size == 0 ? size = 1 : size = value.size
       value.sum / size
     end
-  
-  
-  
+
+
+
     # Generate a hash with the given array elements as keys and 'init_value' as value
     def array_to_hash(init_val = 0)
       h = {}
       self.each {|x| h.merge!(x => init_val) unless x.nil? }
       return h
     end
-  
-  
+
+
     def to_structured_hash(attribute, options = {})
       data = {}
 
       self.each do |item|
         if attribute.is_a?(Symbol) && options[:load_from_hash] != true
           key = item.send(attribute) rescue ""
-        elsif attribute.is_a?(Symbol) && options[:load_from_hash] == true  
+        elsif attribute.is_a?(Symbol) && options[:load_from_hash] == true
           key = item[attribute] rescue ""
         elsif attribute.is_a?(String)
-          attribute_methods = attribute.split(".")  
+          attribute_methods = attribute.split(".")
           key = item.send(attribute_methods[0])
           attribute_methods[1..-1].each do |x|
             key = key.send(x) rescue ""
@@ -62,13 +62,13 @@ module ArrayExt
           data.merge!(key => [item])
         else
           data[key] << item
-        end      
+        end
       end
 
-      return data  
-    end    
+      return data
+    end
 
-  
+
     # Sum up an array of objects with given attirbute
     # Attributes can be given as symbol (:my_value will return obj.my_value)
     # or as string ("user.my_value" will return my_value from user object which belongs to object in array)
@@ -79,26 +79,26 @@ module ArrayExt
       else
         values = []
         if arg.is_a?(Symbol)
-          self.map {|i| ((opt.nil? ? i.send(arg) : i.send(arg, opt)) rescue 0) }.sum 
+          self.map {|i| ((opt.nil? ? i.send(arg) : i.send(arg, opt)) rescue 0) }.sum
         elsif arg.is_a?(String)
           self.each do |v|
-            tag_methods = arg.split(".")  
+            tag_methods = arg.split(".")
             tagx = v.send(tag_methods[0])
             tag_methods[1..-1].each do |x|
               # Use options if last method in chain called
               if tag_methods[1..-1].last == x && !opt.nil?
                 tagx = tagx.send(x,opt)
-              else  
+              else
                 tagx = tagx.send(x)
-              end  
+              end
             end
-            values << tagx  
+            values << tagx
           end
           return values.compact.sum
         end
       end
     end
-  
+
 
     # check the number of items included in the array
     def count_for(item)
@@ -106,32 +106,32 @@ module ArrayExt
       self.each {|x| count += 1 if x == item}
       return count
     end
-  
-  
+
+
     # return the item after the given val in array
     # returns val if no item found or val is not included
     # toggle :cycle => true to continue search at beginn of array if end is reached
     def next(val, options = {})
       i = self.index(val)
       return val if i.nil?
-      
+
       i == self.size-1 ?
-        (options[:cycle] == true ? self.first : val) : self[i+1] 
-    end  
-  
-  
+        (options[:cycle] == true ? self.first : val) : self[i+1]
+    end
+
+
     # Schnittmenge / Intersection zwischen 2 Arrays
     def isec(b)
       raise ArgumentError, "#{b.inspect} is not an array" if !b.is_a?(Array)
       (self- (self-b))
-    end  
-  
+    end
+
     # like except for hash
     def except(*args)
       excluded = *args
       return self - excluded
-    end  
-  
+    end
+
     # break array into n arrays
     def seperate(n = 8)
       f = n
@@ -147,7 +147,7 @@ module ArrayExt
       #arrays.last.pop if (arrays.last.last.empty? || arrays.last.last.blank?)
       return arrays
     end
-  
+
     # [1,2,3,5,6,7].stack(2)
     #  will return [[1, 2], [3, 5], [6, 7]]
     def stack(n = 4)
@@ -155,10 +155,10 @@ module ArrayExt
       i = (self.size.to_f/n).ceil
       i.times do |x|
         arr << self[x*n..(((x+1)*n)-1)]
-      end    
+      end
       return arr
-    end  
-  
+    end
+
 
     # Prepare array for use with mysql IN operator
     def to_sql
@@ -167,12 +167,12 @@ module ArrayExt
         return "(#{self.compact.join(',')})"
       else
         return "(#{self.map{|i| "'#{i.to_s}'"}.join(',')})"
-      end    
-    end 
-  
+      end
+    end
+
     #== Untested / deprecated functions below, should be moved somewhere else!
     # Ignore these functions, there are neither tested nor documented, use them for fun if you like but dont ask me ;-)
-  
+
     def fill_with_sth(sth, size)
       ary_length = self.size
       diff = size - ary_length
@@ -196,85 +196,94 @@ module ArrayExt
     def to_text(sep = "<br />")
       if Rails.env == "development"
         raise "#REMOVED - use .join() - (17.12.2013, 15:18, Florian Eck)"
-      else  
+      else
         self.join(sep)
-      end  
-    end 
-    
-    
+      end
+    end
+
+
     def interpolate(filtered_value = nil, options = {})
       begin
-      
+
         int_start_value = nil
         int_end_value   = nil
         int_from        = 0
-        int_to          = 0 
-        int_steps       = 0 
-      
+        int_to          = 0
+        int_steps       = 0
+
         array_with_interpolation = []
-      
-        self.each_with_index do |x,i| 
+
+        self.each_with_index do |x,i|
           if i > 0
             if x != filtered_value
               # Wenn der letze ein fehler war ist die strecke zuende
               if self[i-1] == filtered_value
-              
+
                 if i-1 == 0
                   # Berechnung anstieg der linearfunktion zwischen Start-und Endpunkt
-                  # 
+                  #
                   m = (self[i+1]-x)
-                
+
                   array_with_interpolation[0] = x-m
                   array_with_interpolation << x
-                
-                else  
+
+                else
                   int_end_value = x
                   int_to        = i
-                
+
                   # Berechnung anstieg der linearfunktion zwischen Start-und Endpunkt
                   m = (int_end_value-int_start_value).fdiv((int_to-int_from))
-              
+
                   # Fülle fehlende werte mit werten (y = mx + b)
                   int_steps.times {|mi| array_with_interpolation << (int_start_value+((mi+1)*m)) }
                   array_with_interpolation << int_end_value
-              
+
                   # Reset all values
                   int_start_value = int_end_value
                   int_end_value   = nil
                   int_from        = 0
-                  int_to          = 0 
-                  int_steps       = 0  
+                  int_to          = 0
+                  int_steps       = 0
                   puts array_with_interpolation.inspect
-                end  
-              else  
+                end
+              else
                 int_start_value = x
                 array_with_interpolation << x
               end
-            # Wenn letzer wert fehlerhaft  
+            # Wenn letzer wert fehlerhaft
             elsif i == self.size-1 && x == filtered_value
               # Berechnung anstieg der linearfunktion zwischen Start-und Endpunkt
               # Berechnung über gesamtes array
               m = (array_with_interpolation.last-array_with_interpolation.first).fdiv(array_with_interpolation.size-1)
               array_with_interpolation << (array_with_interpolation.last+m)
-            else  
+            else
               int_steps += 1
               int_from = i-int_steps
-            end    
-      
+            end
+
           else
             int_start_value = x
             array_with_interpolation << x
-          end    
-        
-        end  
-      
+          end
+
+        end
+
         return array_with_interpolation
       rescue
         puts "WARNING: Interpolation not possible!".red
         return self
-      end    
-      
-    end   
+      end
 
-  end  
+    end
+
+
+    def odd_values
+      self.values_at(* self.each_index.select {|i| i.odd?})
+    end
+
+    def even_values
+      self.values_at(* self.each_index.select {|i| i.even?})
+    end
+
+  end
 end
