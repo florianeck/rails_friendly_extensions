@@ -194,11 +194,7 @@ module ArrayExt
     end
 
     def to_text(sep = "<br />")
-      if Rails.env == "development"
-        raise "#REMOVED - use .join() - (17.12.2013, 15:18, Florian Eck)"
-      else
-        self.join(sep)
-      end
+      self.join(sep)
     end
 
 
