@@ -31,10 +31,6 @@ module Numbers
       self.to_euro(label, :precision => 0)
     end
 
-    def to_a
-      [self]
-    end
-
     # Inflate number, y = duration of years, f = percentage
     # tested
     def infla(y=40,f=2)

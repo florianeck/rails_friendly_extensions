@@ -151,10 +151,6 @@ module StringAndMore
       self.singularize.camelize.constantize
     end
 
-    def to_a
-      return [self]
-    end
-
     #== HTML Styling
     # as the function names say
 
