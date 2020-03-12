@@ -17,7 +17,7 @@ module SmartCurrency
           attributes = self.columns.select {|c| (c.type == :integer || c.type == :decimal) && !c.name.match("id") }
 
           attributes.each do |a|
-            next if skip_on.include?(a.to_sym) || skip_on.include?(a.to_s)
+            next if skip_on.include?(a.to_s.to_sym) || skip_on.include?(a.to_s)
             define_method("#{a.name}=") do |val|
               self[a.name.to_sym] = (disable_smart_currency == true ? val : currency_to_db(val))
             end
