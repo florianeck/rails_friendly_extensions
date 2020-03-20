@@ -7,9 +7,11 @@ module SmartCurrency
 
   module ClassMethods
     def smart_currency(skip_on: [])
+
       if !smart_currency? && table_exists?
           include InstanceMethods
           auto_attributes = []
+
           self.skip_time_zone_conversion_for_attributes = []
 
           self.send(:attr_accessor, :disable_smart_currency)
@@ -17,7 +19,8 @@ module SmartCurrency
           attributes = self.columns.select {|c| (c.type == :integer || c.type == :decimal) && !c.name.match("id") }
 
           attributes.each do |a|
-            next if skip_on.include?(a.to_s.to_sym) || skip_on.include?(a.to_s)
+
+            next if skip_on.include?(a.name.to_s.to_sym) || skip_on.include?(a.name.to_s)
             define_method("#{a.name}=") do |val|
               self[a.name.to_sym] = (disable_smart_currency == true ? val : currency_to_db(val))
             end

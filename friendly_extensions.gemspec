@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'friendly_extensions'
-  s.version     = '0.4'
+  s.version     = '0.4.1'
   s.license     = 'MIT'
   s.summary     = "Collection of useful features for Ruby/Rails Classes"
   s.description = "Adds serveral cool features to your Ruby classes. Includes new features for Array, String, Hash, Numeric, Date/Datetime and some more."
