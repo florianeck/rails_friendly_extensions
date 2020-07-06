@@ -147,9 +147,9 @@ module StringAndMore
       return new_text
     end
 
-    def to_model
-      self.singularize.camelize.constantize
-    end
+    #def to_model
+    #  self.singularize.camelize.constantize
+    #end
 
     #== HTML Styling
     # as the function names say
@@ -204,9 +204,15 @@ module StringAndMore
       colorize(33)
     end
 
+    def blue
+      colorize(34)
+    end
+
     def pink
       colorize(35)
     end
+
+
 
 
     #== Numerische encription
